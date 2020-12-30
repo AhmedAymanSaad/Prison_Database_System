@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp3
+﻿namespace PrisonDBApp
 {
     partial class Form1
     {
