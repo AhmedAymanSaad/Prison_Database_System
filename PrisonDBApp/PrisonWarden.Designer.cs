@@ -1,6 +1,6 @@
 ﻿namespace PrisonDBApp
 {
-    partial class Form1
+    partial class PrisonWarden
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Prison_Warden_button = new System.Windows.Forms.Button();
+            this.Form_for_HiringAndFiring_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Prison_Warden_button
+            // Form_for_HiringAndFiring_Button
             // 
-            this.Prison_Warden_button.Location = new System.Drawing.Point(93, 37);
-            this.Prison_Warden_button.Name = "Prison_Warden_button";
-            this.Prison_Warden_button.Size = new System.Drawing.Size(204, 38);
-            this.Prison_Warden_button.TabIndex = 0;
-            this.Prison_Warden_button.Text = "Prison Warden view";
-            this.Prison_Warden_button.UseVisualStyleBackColor = true;
-            this.Prison_Warden_button.Click += new System.EventHandler(this.Prison_Warden_button_Click);
+            this.Form_for_HiringAndFiring_Button.Location = new System.Drawing.Point(47, 27);
+            this.Form_for_HiringAndFiring_Button.Name = "Form_for_HiringAndFiring_Button";
+            this.Form_for_HiringAndFiring_Button.Size = new System.Drawing.Size(163, 38);
+            this.Form_for_HiringAndFiring_Button.TabIndex = 0;
+            this.Form_for_HiringAndFiring_Button.Text = "Hire/Fire Guards";
+            this.Form_for_HiringAndFiring_Button.UseVisualStyleBackColor = true;
+            this.Form_for_HiringAndFiring_Button.Click += new System.EventHandler(this.Form_for_HiringAndFiring_Button_Click);
             // 
-            // Form1
+            // PrisonWarden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 319);
-            this.Controls.Add(this.Prison_Warden_button);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Form_for_HiringAndFiring_Button);
+            this.Name = "PrisonWarden";
+            this.Text = "PrisonWarden";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button Prison_Warden_button;
+        private System.Windows.Forms.Button Form_for_HiringAndFiring_Button;
     }
 }
-

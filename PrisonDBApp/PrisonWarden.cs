@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace PrisonDBApp
 {
-    public partial class Form1 : Form
+    public partial class PrisonWarden : Form
     {
-        public Form1()
+        public PrisonWarden()
         {
             InitializeComponent();
         }
 
-        private void Prison_Warden_button_Click(object sender, EventArgs e)
+        private void Form_for_HiringAndFiring_Button_Click(object sender, EventArgs e)
         {
-            PrisonWarden a = new PrisonWarden();
+            Prison_Warden___Hiring_And_Firing_Guards a = new Prison_Warden___Hiring_And_Firing_Guards();
             a.Show();
         }
     }
