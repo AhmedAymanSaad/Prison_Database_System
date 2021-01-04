@@ -8,6 +8,7 @@ namespace PrisonDBApp
 {
     class ValidationClass
     {
+        //---------------------------------------------------------Positive Integer checking------------------------------------------------
         public static Object isPositiveInteger(String input, StringBuilder err)
         {
             Object returnData = null;
@@ -29,6 +30,47 @@ namespace PrisonDBApp
             }
             return returnData;
         }
+
+
+
+        //---------------------------------------------------------Integer checking------------------------------------------------
+        public static Object isInteger(String input, StringBuilder err)
+        {
+            Object returnData = null;
+            try
+            {
+                int x = Convert.ToInt32(input);
+                returnData = x;
+
+            }
+            catch
+            {
+                err.Append("Input " + input + " is not a valid integer");
+            }
+            return returnData;
+        }
+
+
+
+        //---------------------------------------------------------Date checking------------------------------------------------
+        public static Object IsDate(String input, StringBuilder err)
+        {
+            Object returnData = null;
+            try
+            {
+                DateTime datee = DateTime.Parse(input);
+                returnData = datee;
+            }
+            catch
+            {
+                err.Append("Please Enter a date in its valid format");
+            }
+            return returnData;
+        }
+
+
+
+
 
 
     }
