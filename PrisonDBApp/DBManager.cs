@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace DBapplication
+namespace PrisonDBApp
 {
     public class DBManager
     {
