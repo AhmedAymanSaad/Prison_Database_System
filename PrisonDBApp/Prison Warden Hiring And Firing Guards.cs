@@ -13,9 +13,12 @@ namespace PrisonDBApp
     public partial class Prison_Warden___Hiring_And_Firing_Guards : Form
     {
         Controller controllerObj;
-        public Prison_Warden___Hiring_And_Firing_Guards()
+        Form MyParent;
+        public Prison_Warden___Hiring_And_Firing_Guards(Form P)
         {
             InitializeComponent();
+            MyParent = P;
+            MyParent.Hide();
 
             IDCheck_Label.Hide();                     // hides the required labels at the beginning
             LastnameCheck_Label.Hide();
@@ -138,6 +141,12 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Guard with ID number " +IDs_ComboBox.Text + " is fired");
             }
+        }
+
+        private void Back_Button_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
         }
     }
 }

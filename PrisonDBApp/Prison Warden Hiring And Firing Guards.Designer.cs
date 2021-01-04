@@ -52,6 +52,7 @@
             this.FireGuard_Button = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.IDs_ComboBox = new System.Windows.Forms.ComboBox();
+            this.Back_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,7 +175,7 @@
             // 
             // Hire_Button
             // 
-            this.Hire_Button.Location = new System.Drawing.Point(77, 385);
+            this.Hire_Button.Location = new System.Drawing.Point(197, 370);
             this.Hire_Button.Name = "Hire_Button";
             this.Hire_Button.Size = new System.Drawing.Size(136, 33);
             this.Hire_Button.TabIndex = 16;
@@ -270,11 +271,22 @@
             this.IDs_ComboBox.Size = new System.Drawing.Size(114, 24);
             this.IDs_ComboBox.TabIndex = 25;
             // 
+            // Back_Button
+            // 
+            this.Back_Button.Location = new System.Drawing.Point(24, 403);
+            this.Back_Button.Name = "Back_Button";
+            this.Back_Button.Size = new System.Drawing.Size(81, 32);
+            this.Back_Button.TabIndex = 26;
+            this.Back_Button.Text = "Back";
+            this.Back_Button.UseVisualStyleBackColor = true;
+            this.Back_Button.Click += new System.EventHandler(this.Back_Button_Click);
+            // 
             // Prison_Warden___Hiring_And_Firing_Guards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Back_Button);
             this.Controls.Add(this.IDs_ComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.FireGuard_Button);
@@ -334,5 +346,6 @@
         private System.Windows.Forms.Button FireGuard_Button;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox IDs_ComboBox;
+        private System.Windows.Forms.Button Back_Button;
     }
 }

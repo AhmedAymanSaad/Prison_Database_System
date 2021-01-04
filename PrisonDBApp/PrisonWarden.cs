@@ -19,7 +19,13 @@ namespace PrisonDBApp
 
         private void Form_for_HiringAndFiring_Button_Click(object sender, EventArgs e)
         {
-            Prison_Warden___Hiring_And_Firing_Guards a = new Prison_Warden___Hiring_And_Firing_Guards();
+            Prison_Warden___Hiring_And_Firing_Guards a = new Prison_Warden___Hiring_And_Firing_Guards(this);
+            a.Show();
+        }
+
+        private void Cells_Button_Click(object sender, EventArgs e)
+        {
+            Guard_Warden_Cell_Info a = new Guard_Warden_Cell_Info(this);
             a.Show();
         }
     }
