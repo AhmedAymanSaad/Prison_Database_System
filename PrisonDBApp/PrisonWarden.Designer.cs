@@ -30,6 +30,7 @@
         {
             this.Form_for_HiringAndFiring_Button = new System.Windows.Forms.Button();
             this.Cells_Button = new System.Windows.Forms.Button();
+            this.Inmate_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Form_for_HiringAndFiring_Button
@@ -52,11 +53,22 @@
             this.Cells_Button.UseVisualStyleBackColor = true;
             this.Cells_Button.Click += new System.EventHandler(this.Cells_Button_Click);
             // 
+            // Inmate_Button
+            // 
+            this.Inmate_Button.Location = new System.Drawing.Point(47, 172);
+            this.Inmate_Button.Name = "Inmate_Button";
+            this.Inmate_Button.Size = new System.Drawing.Size(163, 46);
+            this.Inmate_Button.TabIndex = 2;
+            this.Inmate_Button.Text = "Inmates";
+            this.Inmate_Button.UseVisualStyleBackColor = true;
+            this.Inmate_Button.Click += new System.EventHandler(this.Inmate_Button_Click);
+            // 
             // PrisonWarden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Inmate_Button);
             this.Controls.Add(this.Cells_Button);
             this.Controls.Add(this.Form_for_HiringAndFiring_Button);
             this.Name = "PrisonWarden";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button Form_for_HiringAndFiring_Button;
         private System.Windows.Forms.Button Cells_Button;
+        private System.Windows.Forms.Button Inmate_Button;
     }
 }

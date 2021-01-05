@@ -54,6 +54,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Prison Warden Inmates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prison Warden Inmates.Designer.cs">
+      <DependentUpon>Prison Warden Inmates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prison Warden Repairs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="ValidationClass.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prison Warden Inmates.resx">
+      <DependentUpon>Prison Warden Inmates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prison Warden Repairs.resx">
       <DependentUpon>Prison Warden Repairs.cs</DependentUpon>

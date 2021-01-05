@@ -29,10 +29,23 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable SelectAllInmates()
+        {
+            string query = "select * from Inmate;";
+            return dbMan.ExecuteReader(query);
+        }
+
         //-------------------------------------------------------------------------------------------------------
         public DataTable SelectAllSectors()
         {
             string query = "select SectorID from Sector;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        //-------------------------------------------------------------------------------------------------------
+        public DataTable SelectAllCellNumbers()
+        {
+            string query = "select CellNumber from Cell;";
             return dbMan.ExecuteReader(query);
         }
 
@@ -58,14 +71,6 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
-        //------------------------------Fire a guard using the ID--------------------------------------------------------------------
-        public int FireAGuard(int ID)
-        {
-            string query = "DELETE FROM Guard WHERE ID='" + ID + "';";
-            return dbMan.ExecuteNonQuery(query);
-        }
-
-
 
 
         //-------------------------------------------------------------------------------------------------------------------
@@ -90,10 +95,18 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+        //------------------------------Fire a guard using the ID--------------------------------------------------------------------
+        public int FireAGuard(int ID)
+        {
+            string query = "DELETE FROM Guard WHERE ID='" + ID + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
 
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
-        //---------------------------------------------- For Cell Info Form--------------------------------------------------
+        //---------------------------------------------- For Repairs Form----------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
 
@@ -114,6 +127,34 @@ namespace PrisonDBApp
         {
             string query = "select Facilitynumber,Facilitytype,Expenses,Sectorno from Facility where Expenses >= '"+sum+"'";
             return dbMan.ExecuteReader(query);
+        }
+
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------- For Inmates Form----------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+
+        public DataTable SelectCellNumbersHavingLessThanThreeInmates()
+        {
+            string query = "Select distinct Cellnumber from Cell,Inmate where (Cellnumber=Cellno ) group by Cellno,Cellnumber Having count(Cellno)<3 ";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int SelectTheLastIDAndAddingOne()  // used for adding a default value in the id text box when adding an inmate
+        {
+            string query = "SELECT MAX(ID) +1 FROM Inmate";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int AdmitAnInmate(int ID, string First, string Mid, string Last, string Charge, decimal Sentence,DateTime ConDate, int cellno)
+        {
+            string query = " insert into Inmate (ID,Fname,Mname,Lname,Charge,Sentence,ConvictionDate,Cellno,SolitaryCellnumber,BehaviourScore)" +
+                " values (" +ID+ ",'" + First + "' ,'" + Mid + "','" + Last + "','" + Charge + "',"+ Sentence + ",'" +ConDate+ "','" +cellno + "'" +
+                ", null, null  ); ";
+            return dbMan.ExecuteNonQuery(query);
         }
 
     }

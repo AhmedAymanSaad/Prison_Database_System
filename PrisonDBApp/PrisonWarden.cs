@@ -28,5 +28,12 @@ namespace PrisonDBApp
             Guard_Warden_Cell_Info a = new Guard_Warden_Cell_Info(this);
             a.Show();
         }
+
+        private void Inmate_Button_Click(object sender, EventArgs e)
+        {
+            Prison_Warden_Inmates a = new Prison_Warden_Inmates(this);
+            a.Show();
+
+        }
     }
 }
