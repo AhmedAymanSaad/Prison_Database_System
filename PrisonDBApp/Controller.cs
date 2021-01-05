@@ -110,5 +110,11 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        public DataTable SelectFacilitiesToBeRepairedLessThanASpecificSum(int sum)
+        {
+            string query = "select Facilitynumber,Facilitytype,Expenses,Sectorno from Facility where Expenses >= '"+sum+"'";
+            return dbMan.ExecuteReader(query);
+        }
+
     }
 }

@@ -43,9 +43,26 @@ namespace PrisonDBApp
 
         private void FacilityRepairs_Button_Click(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectFacilitiesToBeRepaired();
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
+            if (MinimumExpense_TextBox.Text == "")
+            {
+                DataTable dt = controllerObj.SelectFacilitiesToBeRepaired();
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+            }
+            else
+            {
+                DataTable dt = controllerObj.SelectFacilitiesToBeRepairedLessThanASpecificSum(Int32.Parse(MinimumExpense_TextBox.Text));
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+            }
+        }
+
+        private void MinimumExpense_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

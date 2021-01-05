@@ -34,13 +34,15 @@
             this.Back_Button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.FacilityRepairs_Button = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.MinimumExpense_TextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -68,7 +70,7 @@
             // 
             // Back_Button
             // 
-            this.Back_Button.Location = new System.Drawing.Point(12, 308);
+            this.Back_Button.Location = new System.Drawing.Point(12, 337);
             this.Back_Button.Name = "Back_Button";
             this.Back_Button.Size = new System.Drawing.Size(95, 29);
             this.Back_Button.TabIndex = 3;
@@ -79,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(12, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(278, 17);
             this.label2.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             // FacilityRepairs_Button
             // 
-            this.FacilityRepairs_Button.Location = new System.Drawing.Point(303, 59);
+            this.FacilityRepairs_Button.Location = new System.Drawing.Point(296, 76);
             this.FacilityRepairs_Button.Name = "FacilityRepairs_Button";
             this.FacilityRepairs_Button.Size = new System.Drawing.Size(123, 30);
             this.FacilityRepairs_Button.TabIndex = 5;
@@ -95,11 +97,30 @@
             this.FacilityRepairs_Button.UseVisualStyleBackColor = true;
             this.FacilityRepairs_Button.Click += new System.EventHandler(this.FacilityRepairs_Button_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(273, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Or enter a minimum facility repair expense";
+            // 
+            // MinimumExpense_TextBox
+            // 
+            this.MinimumExpense_TextBox.Location = new System.Drawing.Point(291, 112);
+            this.MinimumExpense_TextBox.Name = "MinimumExpense_TextBox";
+            this.MinimumExpense_TextBox.Size = new System.Drawing.Size(90, 22);
+            this.MinimumExpense_TextBox.TabIndex = 7;
+            this.MinimumExpense_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MinimumExpense_TextBox_KeyPress);
+            // 
             // Guard_Warden_Cell_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 378);
+            this.Controls.Add(this.MinimumExpense_TextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.FacilityRepairs_Button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Back_Button);
@@ -123,5 +144,7 @@
         private System.Windows.Forms.Button Back_Button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button FacilityRepairs_Button;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox MinimumExpense_TextBox;
     }
 }
