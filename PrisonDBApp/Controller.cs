@@ -302,6 +302,13 @@ namespace PrisonDBApp
         }
 
 
+        public int CancelAVisit(int row, int id)
+        {
+
+            string query = "  with cte(rownum)as (select row_number () over(partition by InmateID order by InmateID)" +
+                " from [Visiting] where InmateID= "+id+") delete from cte where rownum = "+row+"       ;";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
 

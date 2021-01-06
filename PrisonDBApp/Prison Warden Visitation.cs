@@ -15,7 +15,9 @@ namespace PrisonDBApp
         Controller controllerObj;
         Form MyParent;
         int VisitationCount;
+        DateTime today = DateTime.Today;
         public Prison_Warden_Visitation(Form P)
+
         {
             InitializeComponent();
             MyParent = P;
@@ -42,7 +44,7 @@ namespace PrisonDBApp
                 VisitationCount = dt.Rows.Count;
                 for (int i = 1; i <= VisitationCount; i++)
                 {
-                    VisitsScheduled_comboBox.Items.Insert(i - 1, "visit no " + i.ToString());
+                    VisitsScheduled_comboBox.Items.Add(i);
                 }
             }
         }
@@ -65,7 +67,7 @@ namespace PrisonDBApp
                 VisitationCount = dt.Rows.Count;
                 for (int i = 1; i <= VisitationCount; i++)
                 {
-                    VisitsScheduled_comboBox.Items.Insert(i-1,"visit no " + i.ToString());
+                    VisitsScheduled_comboBox.Items.Add(i);
                 }
             }
         }
@@ -83,7 +85,25 @@ namespace PrisonDBApp
                 MessageBox.Show("No visits to cancel");
                 return;
             }
+            int cancellingVisit = controllerObj.CancelAVisit(Int32.Parse(VisitsScheduled_comboBox.Text), Int32.Parse(IDs_comboBox.Text));
+            if (cancellingVisit == 1)
+            {
+                MessageBox.Show("The visit has been cancelled");
+                DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text));
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
 
+                VisitsScheduled_comboBox.Items.Clear();
+                if (dt != null)
+                {
+                    VisitationCount = dt.Rows.Count;
+                    for (int i = 1; i <= VisitationCount; i++)
+                    {
+                        VisitsScheduled_comboBox.Items.Add(i);
+                    }
+                }
+            }
         }
     }
+
 }

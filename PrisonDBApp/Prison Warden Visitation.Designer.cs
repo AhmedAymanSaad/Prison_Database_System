@@ -35,6 +35,7 @@
             this.CancelVisit_button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Back_button = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,11 +88,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(91, 94);
+            this.label2.Location = new System.Drawing.Point(56, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.Size = new System.Drawing.Size(157, 17);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Scheduled Visits";
+            this.label2.Text = "Scheduled Visit number";
             // 
             // Back_button
             // 
@@ -103,11 +104,21 @@
             this.Back_button.UseVisualStyleBackColor = true;
             this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(56, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(255, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "(Ordered by their sequence in the grid)";
+            // 
             // Prison_Warden_Visitation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CancelVisit_button);
@@ -134,5 +145,6 @@
         private System.Windows.Forms.Button CancelVisit_button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Back_button;
+        private System.Windows.Forms.Label label3;
     }
 }
