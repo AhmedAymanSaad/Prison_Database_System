@@ -93,6 +93,15 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectAvailableSolitaryCellNumbers()
+        {
+            string query = "select Solitarycellnumber from Solitary_Confinement where Starttime IS NULL ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+
 
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
@@ -225,6 +234,52 @@ namespace PrisonDBApp
                 " values (" + ID + ",'" + fname + "' ,'" + middle + "','" + lastname + "','Released','" + sentence + "','"+date+"', '"+ prohibation + "'  ); ";
             return dbMan.ExecuteNonQuery(query);
         }
+
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------- For IMPRISONED Inmates Form-----------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+
+        public int SelectBehaviourUsingID(int num)
+        {
+            string query = "SELECT BehaviourScore FROM Inmate WHERE ID='" + num + "';";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int UpdateBehaviorScore(int BehaviorScore, int id)
+        {
+
+            string query = "UPDATE Inmate SET BehaviourScore='" + BehaviorScore + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int ChangeCells(int CellNo, int id)
+        {
+
+            string query = "UPDATE Inmate SET Cellno='" + CellNo + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int ChangeToSolitaryConfinement(int CellNo, int id, DateTime startdate, decimal duration)
+        {
+
+            string query = "UPDATE Inmate SET SolitaryCellnumber='" + CellNo + "' WHERE ID='" + id + "';";
+            string query1 = "UPDATE Solitary_Confinement SET Starttime='"+startdate+ "', duration='"+duration+ "' where Solitarycellnumber =" +
+                " '"+ CellNo + "'  ";
+            dbMan.ExecuteNonQuery(query);
+            return dbMan.ExecuteNonQuery(query1);
+        }
+
+        //public int CheckIfAlreadyInSolitaryConfinement(int num)
+        //{
+        //    string query = "SELECT SolitaryCellnumber FROM Inmate WHERE SolitaryCellnumber is not null and ID='" + num + "';";
+        //    return dbMan.ExecuteNonQuery(query);
+        //}
+
+
 
     }
 }
