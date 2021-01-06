@@ -78,6 +78,12 @@
     <Compile Include="Prison Warden Hiring And Firing Guards.Designer.cs">
       <DependentUpon>Prison Warden Hiring And Firing Guards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Prison Warden Visitation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prison Warden Visitation.Designer.cs">
+      <DependentUpon>Prison Warden Visitation.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrisonWarden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Prison Warden Hiring And Firing Guards.resx">
       <DependentUpon>Prison Warden Hiring And Firing Guards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prison Warden Visitation.resx">
+      <DependentUpon>Prison Warden Visitation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrisonWarden.resx">
       <DependentUpon>PrisonWarden.cs</DependentUpon>

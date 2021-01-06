@@ -22,6 +22,7 @@ namespace PrisonDBApp
             controllerObj = new Controller();
 
             label11.Hide();
+            label16.Hide();
 
             BehaviorScore_numericUpDown.Maximum = 100;
             BehaviorScore_numericUpDown.Minimum = -100;
@@ -42,7 +43,9 @@ namespace PrisonDBApp
 
         private void Prison_Warden_Imprisoned_Inmates_Load(object sender, EventArgs e)
         {
-
+            DataTable dt = controllerObj.SelectInmateUsingHisID(Int32.Parse(IDs_comboBox.Text));
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
         }
 
         private void MoreOptions_Button_Click(object sender, EventArgs e)
@@ -113,12 +116,12 @@ namespace PrisonDBApp
         private void SolitaryConfinment_button_Click(object sender, EventArgs e)
         {
             string theDate = dateTimePicker1.Value.ToString("yyyy/MM/dd");
-            //int Check = controllerObj.CheckIfAlreadyInSolitaryConfinement(Int32.Parse(IDs_comboBox.Text));
-            //if (Check != 0)
-            //{
-            //    MessageBox.Show(" Inmate is already in solitary confinement");
-            //    return;
-            //}
+            int Check = controllerObj.CheckIfAlreadyInSolitaryConfinement(Int32.Parse(IDs_comboBox.Text));
+            if (Check != 0)
+            {
+                MessageBox.Show(" Inmate is already in solitary confinement");
+                return;
+            }
             if (Duration_textBox.Text == "")
             {
                 label11.Visible = true;
@@ -140,6 +143,45 @@ namespace PrisonDBApp
             {
                 MessageBox.Show(" Inmate cell transferring failed");
             }
+
+        }
+
+        private void UpdateSentence_button_Click(object sender, EventArgs e)
+        {
+            if (NewSentence_textBox.Text == "")
+            {
+                label16.Visible = true;
+                return;
+            }
+
+            int IsSentenceChanged = controllerObj.ChangeSentence(decimal.Parse(NewSentence_textBox.Text), Int32.Parse(IDs_comboBox.Text));
+            if (IsSentenceChanged == 1)
+            {
+                label16.Hide();
+                MessageBox.Show(" Inmate with ID " + IDs_comboBox.Text + " sentence was changed to " + NewSentence_textBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Sentence wasn't changed");
+            }
+
+
+        }
+
+        private void NewSentence_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void IDs_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = controllerObj.SelectInmateUsingHisID(Int32.Parse(IDs_comboBox.Text));
+            dataGridView1.DataSource = dt;
+            dataGridView1.Refresh();
 
         }
     }

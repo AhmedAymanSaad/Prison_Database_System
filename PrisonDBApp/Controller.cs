@@ -263,6 +263,14 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+
+        public int ChangeSentence(decimal NewSent, int id)
+        {
+
+            string query = "UPDATE Inmate SET Sentence='" + NewSent + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
         public int ChangeToSolitaryConfinement(int CellNo, int id, DateTime startdate, decimal duration)
         {
 
@@ -273,11 +281,29 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query1);
         }
 
-        //public int CheckIfAlreadyInSolitaryConfinement(int num)
-        //{
-        //    string query = "SELECT SolitaryCellnumber FROM Inmate WHERE SolitaryCellnumber is not null and ID='" + num + "';";
-        //    return dbMan.ExecuteNonQuery(query);
-        //}
+        public int CheckIfAlreadyInSolitaryConfinement(int num)
+        {
+            string query = "SELECT COUNT(SolitaryCellnumber) FROM Inmate WHERE ID ='" + num + "';";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------- For Visitation Form-------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+
+        public DataTable SelectScheduledVisits(int num)
+        {
+            string query = "select InmateID,VisitorID,StartDate,EndDate from Visiting,Inmate where InmateID=ID and ID= " + num+ " " +
+                "order by InmateID,VisitorID,StartDate ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+
+
 
 
 

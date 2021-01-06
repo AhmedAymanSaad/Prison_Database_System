@@ -54,13 +54,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.NewSentence_textBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.UpdateSentence_button = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BehaviorScore_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // MoreOptions_Button
             // 
-            this.MoreOptions_Button.Location = new System.Drawing.Point(558, 472);
+            this.MoreOptions_Button.Location = new System.Drawing.Point(647, 490);
             this.MoreOptions_Button.Name = "MoreOptions_Button";
             this.MoreOptions_Button.Size = new System.Drawing.Size(230, 28);
             this.MoreOptions_Button.TabIndex = 0;
@@ -71,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(507, 452);
+            this.label1.Location = new System.Drawing.Point(596, 469);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(281, 17);
             this.label1.TabIndex = 1;
@@ -91,6 +101,7 @@
             this.IDs_comboBox.Name = "IDs_comboBox";
             this.IDs_comboBox.Size = new System.Drawing.Size(90, 24);
             this.IDs_comboBox.TabIndex = 3;
+            this.IDs_comboBox.SelectedIndexChanged += new System.EventHandler(this.IDs_comboBox_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -122,7 +133,7 @@
             // 
             // Back_button
             // 
-            this.Back_button.Location = new System.Drawing.Point(12, 474);
+            this.Back_button.Location = new System.Drawing.Point(11, 491);
             this.Back_button.Name = "Back_button";
             this.Back_button.Size = new System.Drawing.Size(113, 26);
             this.Back_button.TabIndex = 7;
@@ -164,12 +175,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(468, 157);
+            this.dataGridView1.Size = new System.Drawing.Size(557, 157);
             this.dataGridView1.TabIndex = 11;
             // 
             // ViewInmates_button
             // 
-            this.ViewInmates_button.Location = new System.Drawing.Point(625, 76);
+            this.ViewInmates_button.Location = new System.Drawing.Point(714, 88);
             this.ViewInmates_button.Name = "ViewInmates_button";
             this.ViewInmates_button.Size = new System.Drawing.Size(163, 26);
             this.ViewInmates_button.TabIndex = 12;
@@ -300,11 +311,118 @@
             this.label13.TabIndex = 28;
             this.label13.Text = "Option 3";
             // 
+            // NewSentence_textBox
+            // 
+            this.NewSentence_textBox.Location = new System.Drawing.Point(694, 332);
+            this.NewSentence_textBox.Name = "NewSentence_textBox";
+            this.NewSentence_textBox.Size = new System.Drawing.Size(93, 22);
+            this.NewSentence_textBox.TabIndex = 29;
+            this.NewSentence_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NewSentence_textBox_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(588, 309);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(69, 20);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Option 4";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(589, 329);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(99, 17);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "New Sentence";
+            // 
+            // UpdateSentence_button
+            // 
+            this.UpdateSentence_button.Location = new System.Drawing.Point(694, 357);
+            this.UpdateSentence_button.Name = "UpdateSentence_button";
+            this.UpdateSentence_button.Size = new System.Drawing.Size(129, 25);
+            this.UpdateSentence_button.TabIndex = 32;
+            this.UpdateSentence_button.Text = "Update Sentence";
+            this.UpdateSentence_button.UseVisualStyleBackColor = true;
+            this.UpdateSentence_button.Click += new System.EventHandler(this.UpdateSentence_button_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(806, 331);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 17);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Required*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(607, 346);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 17);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "In years";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(73, 103);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(115, 17);
+            this.label18.TabIndex = 35;
+            this.label18.Text = "(Behavior Score)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(73, 201);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 17);
+            this.label19.TabIndex = 36;
+            this.label19.Text = "(Change cells)";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(76, 312);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(198, 17);
+            this.label20.TabIndex = 37;
+            this.label20.Text = "(Move to solitary confinement)";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(654, 312);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(131, 17);
+            this.label21.TabIndex = 38;
+            this.label21.Text = "(Change Sentence)";
+            // 
             // Prison_Warden_Imprisoned_Inmates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 512);
+            this.ClientSize = new System.Drawing.Size(889, 541);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.UpdateSentence_button);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.NewSentence_textBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -369,5 +487,15 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox NewSentence_textBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button UpdateSentence_button;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }
