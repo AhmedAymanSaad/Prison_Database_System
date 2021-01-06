@@ -34,7 +34,7 @@ namespace PrisonDBApp
 
         private void Prison_Warden_Visitation_Load(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text));
+            DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text),today);
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
 
@@ -56,7 +56,7 @@ namespace PrisonDBApp
 
         private void IDs_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text));
+            DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text), today);
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
 
@@ -85,11 +85,11 @@ namespace PrisonDBApp
                 MessageBox.Show("No visits to cancel");
                 return;
             }
-            int cancellingVisit = controllerObj.CancelAVisit(Int32.Parse(VisitsScheduled_comboBox.Text), Int32.Parse(IDs_comboBox.Text));
+            int cancellingVisit = controllerObj.CancelAVisit(Int32.Parse(VisitsScheduled_comboBox.Text), Int32.Parse(IDs_comboBox.Text),today);
             if (cancellingVisit == 1)
             {
                 MessageBox.Show("The visit has been cancelled");
-                DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text));
+                DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text), today);
                 dataGridView1.DataSource = dt;
                 dataGridView1.Refresh();
 

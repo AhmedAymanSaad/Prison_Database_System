@@ -294,19 +294,19 @@ namespace PrisonDBApp
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
 
-        public DataTable SelectScheduledVisits(int num)
+        public DataTable SelectScheduledVisits(int num, DateTime TodayDate)
         {
-            string query = "select InmateID,VisitorID,StartDate,EndDate from Visiting,Inmate where InmateID=ID and ID= " + num+ " " +
+            string query = "select InmateID,VisitorID,StartDate,EndDate from Visiting,Inmate where InmateID=ID and StartDate >= '"+TodayDate+"' and ID= " + num+ " " +
                 "order by InmateID,VisitorID,StartDate ;";
             return dbMan.ExecuteReader(query);
         }
 
 
-        public int CancelAVisit(int row, int id)
+        public int CancelAVisit(int row, int id, DateTime todaydate)
         {
 
             string query = "  with cte(rownum)as (select row_number () over(partition by InmateID order by InmateID)" +
-                " from [Visiting] where InmateID= "+id+") delete from cte where rownum = "+row+"       ;";
+                " from [Visiting] where InmateID= "+id+ " and StartDate>= '"+ todaydate + "') delete from cte where rownum = " + row+"       ;";
             return dbMan.ExecuteNonQuery(query);
         }
 
