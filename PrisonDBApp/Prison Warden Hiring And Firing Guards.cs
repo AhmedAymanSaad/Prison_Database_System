@@ -33,14 +33,23 @@ namespace PrisonDBApp
             DataTable dt = controllerObj.SelectAllSectors();
             Sector_ComboBox.DataSource = dt;
             Sector_ComboBox.DisplayMember = "SectorID";
+            DataTable dtl = controllerObj.SelectAllSectors();
+            NewSector_comboBox.DataSource = dtl;
+            NewSector_comboBox.DisplayMember = "SectorID";
 
             DataTable dt1 = controllerObj.SelectAllSupercisors();      // adding the supervisors ID to a combobox
             SupervisorID_ComboBox.DataSource = dt1;
             SupervisorID_ComboBox.DisplayMember = "Supervisor_ID";
+            DataTable dtl1 = controllerObj.SelectAllSupercisors();
+            NewSupervisor_comboBox.DataSource = dtl1;
+            NewSupervisor_comboBox.DisplayMember = "Supervisor_ID";
 
             DataTable dt2 = controllerObj.SelectGuardTypes();          // adding the GuardTypes to a combobox
             Type_ComboBox.DataSource = dt2;
             Type_ComboBox.DisplayMember = "Type";
+            DataTable dtl2 = controllerObj.SelectGuardTypes();
+            NewType_comboBox.DataSource = dtl2;
+            NewType_comboBox.DisplayMember = "Type";
 
             DataTable dt3 = controllerObj.SelectAllGuardIDs();          // adding the GuardTypes to a combobox
             IDs_ComboBox.DataSource = dt3;
@@ -55,7 +64,11 @@ namespace PrisonDBApp
 
         private void Prison_Warden___Hiring_And_Firing_Guards_Load(object sender, EventArgs e)
         {
-
+            DataTable dt = controllerObj.SelectGuardUsingID(Int32.Parse(IDs_ComboBox.Text));
+            var stringArr = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            NewType_comboBox.Text = stringArr[4];
+            NewSupervisor_comboBox.Text = stringArr[5];
+            NewSector_comboBox.Text = stringArr[6];
         }
 
         //----------------------------------Hiring A Gurad---------------------------------------------
@@ -147,6 +160,42 @@ namespace PrisonDBApp
         {
             MyParent.Visible = true;
             this.Hide();
+        }
+
+        private void IDs_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = controllerObj.SelectGuardUsingID(Int32.Parse(IDs_ComboBox.Text));
+            var stringArr = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            NewType_comboBox.Text = stringArr[4];
+            NewSupervisor_comboBox.Text = stringArr[5];
+            NewSector_comboBox.Text = stringArr[6];
+
+
+        }
+
+        private void Update_button_Click(object sender, EventArgs e)
+        {
+            int UpdatingInfo;
+            if (NewSupervisor_comboBox.Text != "")
+            {
+                 UpdatingInfo = controllerObj.UpdateGuardInfo(NewType_comboBox.Text, Int32.Parse(NewSupervisor_comboBox.Text)
+                    , Int32.Parse(NewSector_comboBox.Text), Int32.Parse(IDs_ComboBox.Text));
+            }
+            else
+            {
+                UpdatingInfo = controllerObj.UpdateGuardInfoWithNoSupervisor(NewType_comboBox.Text,
+                    Int32.Parse(NewSector_comboBox.Text), Int32.Parse(IDs_ComboBox.Text));
+            }
+
+
+            if (UpdatingInfo == 1)
+            {
+                MessageBox.Show("Guard Updated Successfully!");
+                DataTable dt = controllerObj.SelectGuardUsingID(Int32.Parse(IDs_ComboBox.Text));
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+
+            }
         }
     }
 }

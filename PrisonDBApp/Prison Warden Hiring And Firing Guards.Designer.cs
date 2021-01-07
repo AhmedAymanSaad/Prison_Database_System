@@ -53,6 +53,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.IDs_ComboBox = new System.Windows.Forms.ComboBox();
             this.Back_Button = new System.Windows.Forms.Button();
+            this.NewType_comboBox = new System.Windows.Forms.ComboBox();
+            this.NewSupervisor_comboBox = new System.Windows.Forms.ComboBox();
+            this.NewSector_comboBox = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Update_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,17 +243,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(384, 182);
+            this.dataGridView1.Location = new System.Drawing.Point(384, 237);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(404, 203);
+            this.dataGridView1.Size = new System.Drawing.Size(404, 148);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FireGuard_Button
             // 
-            this.FireGuard_Button.Location = new System.Drawing.Point(528, 97);
+            this.FireGuard_Button.Location = new System.Drawing.Point(648, 194);
             this.FireGuard_Button.Name = "FireGuard_Button";
             this.FireGuard_Button.Size = new System.Drawing.Size(140, 28);
             this.FireGuard_Button.TabIndex = 23;
@@ -257,19 +264,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(431, 65);
+            this.label7.Location = new System.Drawing.Point(415, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(237, 17);
+            this.label7.Size = new System.Drawing.Size(299, 17);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Select the ID of the guard to be fired";
+            this.label7.Text = "Select the ID of the guard to be Fired/Updated";
             // 
             // IDs_ComboBox
             // 
             this.IDs_ComboBox.FormattingEnabled = true;
-            this.IDs_ComboBox.Location = new System.Drawing.Point(674, 62);
+            this.IDs_ComboBox.Location = new System.Drawing.Point(713, 12);
             this.IDs_ComboBox.Name = "IDs_ComboBox";
-            this.IDs_ComboBox.Size = new System.Drawing.Size(114, 24);
+            this.IDs_ComboBox.Size = new System.Drawing.Size(75, 24);
             this.IDs_ComboBox.TabIndex = 25;
+            this.IDs_ComboBox.SelectedIndexChanged += new System.EventHandler(this.IDs_ComboBox_SelectedIndexChanged);
             // 
             // Back_Button
             // 
@@ -281,11 +289,79 @@
             this.Back_Button.UseVisualStyleBackColor = true;
             this.Back_Button.Click += new System.EventHandler(this.Back_Button_Click);
             // 
+            // NewType_comboBox
+            // 
+            this.NewType_comboBox.FormattingEnabled = true;
+            this.NewType_comboBox.Location = new System.Drawing.Point(648, 69);
+            this.NewType_comboBox.Name = "NewType_comboBox";
+            this.NewType_comboBox.Size = new System.Drawing.Size(108, 24);
+            this.NewType_comboBox.TabIndex = 27;
+            // 
+            // NewSupervisor_comboBox
+            // 
+            this.NewSupervisor_comboBox.FormattingEnabled = true;
+            this.NewSupervisor_comboBox.Location = new System.Drawing.Point(648, 99);
+            this.NewSupervisor_comboBox.Name = "NewSupervisor_comboBox";
+            this.NewSupervisor_comboBox.Size = new System.Drawing.Size(108, 24);
+            this.NewSupervisor_comboBox.TabIndex = 28;
+            // 
+            // NewSector_comboBox
+            // 
+            this.NewSector_comboBox.FormattingEnabled = true;
+            this.NewSector_comboBox.Location = new System.Drawing.Point(648, 128);
+            this.NewSector_comboBox.Name = "NewSector_comboBox";
+            this.NewSector_comboBox.Size = new System.Drawing.Size(108, 24);
+            this.NewSector_comboBox.TabIndex = 29;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(487, 76);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(129, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Change guard type";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(487, 105);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(149, 17);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "Assign new supervisor";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(487, 135);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(161, 17);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Change assigned sector";
+            // 
+            // Update_button
+            // 
+            this.Update_button.Location = new System.Drawing.Point(483, 194);
+            this.Update_button.Name = "Update_button";
+            this.Update_button.Size = new System.Drawing.Size(133, 27);
+            this.Update_button.TabIndex = 33;
+            this.Update_button.Text = "Update";
+            this.Update_button.UseVisualStyleBackColor = true;
+            this.Update_button.Click += new System.EventHandler(this.Update_button_Click);
+            // 
             // Prison_Warden___Hiring_And_Firing_Guards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Update_button);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.NewSector_comboBox);
+            this.Controls.Add(this.NewSupervisor_comboBox);
+            this.Controls.Add(this.NewType_comboBox);
             this.Controls.Add(this.Back_Button);
             this.Controls.Add(this.IDs_ComboBox);
             this.Controls.Add(this.label7);
@@ -347,5 +423,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox IDs_ComboBox;
         private System.Windows.Forms.Button Back_Button;
+        private System.Windows.Forms.ComboBox NewType_comboBox;
+        private System.Windows.Forms.ComboBox NewSupervisor_comboBox;
+        private System.Windows.Forms.ComboBox NewSector_comboBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button Update_button;
     }
 }

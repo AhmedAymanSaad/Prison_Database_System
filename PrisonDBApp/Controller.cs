@@ -29,6 +29,13 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectGuardUsingID(int id)
+        {
+            string query = "select * from Guard where ID= '"+id+"';";
+            return dbMan.ExecuteReader(query);
+        }
+
         public DataTable SelectAllInmates()
         {
             string query = "select * from Inmate;";
@@ -132,6 +139,19 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateGuardInfo(string GuardType,int SupervisorID, int sectno,int id)
+        {
+            string query = "UPDATE Guard SET Type='" + GuardType + "', Supervisor_ID= '" + SupervisorID + "', Sectorno = '" + sectno+ "'" +
+                "  WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateGuardInfoWithNoSupervisor(string GuardType, int sectno, int id)
+        {
+            string query = "UPDATE Guard SET Type='" + GuardType + "', Supervisor_ID= null, Sectorno = '" + sectno + "'" +
+                "  WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
         //-------------------------------------------------------------------------------------------------------------------
