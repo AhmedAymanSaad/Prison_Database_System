@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace PrisonDBApp
 {
@@ -12,7 +13,7 @@ namespace PrisonDBApp
     {
         //TODO: Make Sure to change Connection String to your Database 
 
-        static string DB_Connection_String = @"Data Source=localhost;Initial Catalog=Prison;Integrated Security=True";
+        static string DB_Connection_String = ConfigurationManager.ConnectionStrings["DBapplication.Properties.Settings.ConnectionString"].ConnectionString;
         SqlConnection myConnection;
 
         public DBManager()
