@@ -10,23 +10,28 @@ using System.Windows.Forms;
 
 namespace PrisonDBApp
 {
-    public partial class Form1 : Form
+    public partial class GuardView : Form
     {
-        public Form1()
+        public GuardView()
         {
             InitializeComponent();
         }
 
-        private void Prison_Warden_button_Click(object sender, EventArgs e)
+        private void GuardView_Load(object sender, EventArgs e)
         {
-            PrisonWarden a = new PrisonWarden();
-            a.Show();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GuardView g = new GuardView();
+            GuardAssignments g = new GuardAssignments(this);
             g.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VisitorData v = new VisitorData(this);
+            v.Show();
         }
     }
 }

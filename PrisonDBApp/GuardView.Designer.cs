@@ -1,6 +1,6 @@
 ﻿namespace PrisonDBApp
 {
-    partial class Form1
+    partial class GuardView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,47 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Prison_Warden_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Prison_Warden_button
-            // 
-            this.Prison_Warden_button.Location = new System.Drawing.Point(93, 37);
-            this.Prison_Warden_button.Name = "Prison_Warden_button";
-            this.Prison_Warden_button.Size = new System.Drawing.Size(204, 38);
-            this.Prison_Warden_button.TabIndex = 0;
-            this.Prison_Warden_button.Text = "Prison Warden view";
-            this.Prison_Warden_button.UseVisualStyleBackColor = true;
-            this.Prison_Warden_button.Click += new System.EventHandler(this.Prison_Warden_button_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 221);
+            this.button1.Location = new System.Drawing.Point(61, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Guard View";
+            this.button1.Size = new System.Drawing.Size(186, 49);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "View Assignments";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(61, 124);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 49);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Visitor Data";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // GuardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 319);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Prison_Warden_button);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "GuardView";
+            this.Text = "GuardView";
+            this.Load += new System.EventHandler(this.GuardView_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button Prison_Warden_button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
-
