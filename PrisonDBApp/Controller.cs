@@ -29,6 +29,13 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectGuardUsingID(int id)
+        {
+            string query = "select * from Guard where ID= '"+id+"';";
+            return dbMan.ExecuteReader(query);
+        }
+
         public DataTable SelectAllInmates()
         {
             string query = "select * from Inmate;";
@@ -39,6 +46,12 @@ namespace PrisonDBApp
         public DataTable SelectAllSectors()
         {
             string query = "select SectorID from Sector;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectAllTransferredInmates()
+        {
+            string query = "select * from Released_Convict where Status= 'Transferred';";
             return dbMan.ExecuteReader(query);
         }
 
@@ -72,6 +85,30 @@ namespace PrisonDBApp
         }
 
 
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectInmateIDs()
+        {
+            string query = "select ID from Inmate;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectInmateUsingHisID(int id)
+        {
+            string query = "select * from Inmate where ID="+id+" ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        //--------------------------------------------------------------------------------------------------------
+        public DataTable SelectAvailableSolitaryCellNumbers()
+        {
+            string query = "select Solitarycellnumber from Solitary_Confinement where Starttime IS NULL ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+
 
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
@@ -102,6 +139,19 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateGuardInfo(string GuardType,int SupervisorID, int sectno,int id)
+        {
+            string query = "UPDATE Guard SET Type='" + GuardType + "', Supervisor_ID= '" + SupervisorID + "', Sectorno = '" + sectno+ "'" +
+                "  WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int UpdateGuardInfoWithNoSupervisor(string GuardType, int sectno, int id)
+        {
+            string query = "UPDATE Guard SET Type='" + GuardType + "', Supervisor_ID= null, Sectorno = '" + sectno + "'" +
+                "  WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
 
         //-------------------------------------------------------------------------------------------------------------------
@@ -156,6 +206,133 @@ namespace PrisonDBApp
                 ", null, null  ); ";
             return dbMan.ExecuteNonQuery(query);
         }
+
+
+        //----------------------------------------------------For The Transfer of the convict---------------------------
+        public int RemoveInmate(int num)
+        {
+            string query = "DELETE FROM Inmate WHERE ID='" + num + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public string SelectFirstNameUsingID(int num) 
+        {
+            string query = "SELECT Fname FROM Inmate WHERE ID='" + num + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
+        public string SelectMiddleInitialUsingID(int num)
+        {
+            string query = "SELECT Mname FROM Inmate WHERE ID='" + num + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
+        public string SelectLastNameUsingID(int num)
+        {
+            string query = "SELECT Lname FROM Inmate WHERE ID='" + num + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
+        public string SelectSentenceUsingID(int num)
+        {
+            string query = "SELECT Charge FROM Inmate WHERE ID='" + num + "';";
+            return dbMan.ExecuteScalar(query).ToString();
+        }
+
+
+        public int UpdateInmateToTransffered(int ID, string fname, char middle,string lastname, string sentence)
+        {
+            string query = " insert into Released_Convict (nationalID,Fname,Minit,Lname,Status,Originalsentence,ReleaseDate,ProbationPeriod)" +
+                " values (" + ID + ",'" + fname + "' ,'" + middle + "','" + lastname + "','Transferred','" + sentence + "',null, null  ); ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
+        public int UpdateInmateToReleased(int ID, string fname, char middle, string lastname, string sentence, DateTime date, int prohibation)
+        {
+            string query = " insert into Released_Convict (nationalID,Fname,Minit,Lname,Status,Originalsentence,ReleaseDate,ProbationPeriod)" +
+                " values (" + ID + ",'" + fname + "' ,'" + middle + "','" + lastname + "','Released','" + sentence + "','"+date+"', '"+ prohibation + "'  ); ";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------- For IMPRISONED Inmates Form-----------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+
+        public int SelectBehaviourUsingID(int num)
+        {
+            string query = "SELECT BehaviourScore FROM Inmate WHERE ID='" + num + "';";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+        public int UpdateBehaviorScore(int BehaviorScore, int id)
+        {
+
+            string query = "UPDATE Inmate SET BehaviourScore='" + BehaviorScore + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int ChangeCells(int CellNo, int id)
+        {
+
+            string query = "UPDATE Inmate SET Cellno='" + CellNo + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
+        public int ChangeSentence(decimal NewSent, int id)
+        {
+
+            string query = "UPDATE Inmate SET Sentence='" + NewSent + "' WHERE ID='" + id + "';";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int ChangeToSolitaryConfinement(int CellNo, int id, DateTime startdate, decimal duration)
+        {
+
+            string query = "UPDATE Inmate SET SolitaryCellnumber='" + CellNo + "' WHERE ID='" + id + "';";
+            string query1 = "UPDATE Solitary_Confinement SET Starttime='"+startdate+ "', duration='"+duration+ "' where Solitarycellnumber =" +
+                " '"+ CellNo + "'  ";
+            dbMan.ExecuteNonQuery(query);
+            return dbMan.ExecuteNonQuery(query1);
+        }
+
+        public int CheckIfAlreadyInSolitaryConfinement(int num)
+        {
+            string query = "SELECT COUNT(SolitaryCellnumber) FROM Inmate WHERE ID ='" + num + "';";
+            return (int)dbMan.ExecuteScalar(query);
+        }
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------------- For Visitation Form-------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
+
+        public DataTable SelectScheduledVisits(int num, DateTime TodayDate)
+        {
+            string query = "select InmateID,VisitorID,StartDate,EndDate from Visiting,Inmate where InmateID=ID and StartDate >= '"+TodayDate+"' and ID= " + num+ " " +
+                "order by InmateID,VisitorID,StartDate ;";
+            return dbMan.ExecuteReader(query);
+        }
+
+
+        public int CancelAVisit(int row, int id, DateTime todaydate)
+        {
+
+            string query = "  with cte(rownum)as (select row_number () over(partition by InmateID order by InmateID)" +
+                " from [Visiting] where InmateID= "+id+ " and StartDate>= '"+ todaydate + "') delete from cte where rownum = " + row+"       ;";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
+
+
 
     }
 }

@@ -31,7 +31,14 @@ namespace PrisonDBApp
 
         private void Inmate_Button_Click(object sender, EventArgs e)
         {
-            Prison_Warden_Inmates a = new Prison_Warden_Inmates(this);
+            Prison_Warden_Imprisoned_Inmates a = new Prison_Warden_Imprisoned_Inmates(this);
+            a.Show();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Prison_Warden_Visitation a = new Prison_Warden_Visitation(this);
             a.Show();
 
         }

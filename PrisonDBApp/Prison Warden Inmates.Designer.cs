@@ -53,12 +53,27 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ViewAllInmates_Button = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.InmatesID_comboBox = new System.Windows.Forms.ComboBox();
+            this.TransferInmateByID_comboBox = new System.Windows.Forms.ComboBox();
+            this.ReleaseInmateByID_comboBox = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ReleaseInmate_Button = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TransferInmate_Button = new System.Windows.Forms.Button();
+            this.ProhibationPeriod_TextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.NationalID_TextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Back_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 45);
+            this.dateTimePicker1.Location = new System.Drawing.Point(299, 36);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(254, 22);
             this.dateTimePicker1.TabIndex = 0;
@@ -251,37 +266,188 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(95, 25);
+            this.label14.Location = new System.Drawing.Point(331, 16);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(127, 17);
+            this.label14.Size = new System.Drawing.Size(183, 17);
             this.label14.TabIndex = 24;
-            this.label14.Text = "Date of Conviction ";
+            this.label14.Text = "Date of Conviction/Release ";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(427, 242);
+            this.dataGridView1.Location = new System.Drawing.Point(316, 413);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(368, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(554, 160);
             this.dataGridView1.TabIndex = 25;
             // 
             // ViewAllInmates_Button
             // 
-            this.ViewAllInmates_Button.Location = new System.Drawing.Point(654, 408);
+            this.ViewAllInmates_Button.Location = new System.Drawing.Point(130, 520);
             this.ViewAllInmates_Button.Name = "ViewAllInmates_Button";
             this.ViewAllInmates_Button.Size = new System.Drawing.Size(141, 30);
             this.ViewAllInmates_Button.TabIndex = 26;
-            this.ViewAllInmates_Button.Text = "View All Inmates";
+            this.ViewAllInmates_Button.Text = "View Inmate";
             this.ViewAllInmates_Button.UseVisualStyleBackColor = true;
             this.ViewAllInmates_Button.Click += new System.EventHandler(this.ViewAllInmates_Button_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 493);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(192, 17);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Select an Inmate Using his ID";
+            // 
+            // InmatesID_comboBox
+            // 
+            this.InmatesID_comboBox.FormattingEnabled = true;
+            this.InmatesID_comboBox.Location = new System.Drawing.Point(210, 490);
+            this.InmatesID_comboBox.Name = "InmatesID_comboBox";
+            this.InmatesID_comboBox.Size = new System.Drawing.Size(82, 24);
+            this.InmatesID_comboBox.TabIndex = 30;
+            // 
+            // TransferInmateByID_comboBox
+            // 
+            this.TransferInmateByID_comboBox.FormattingEnabled = true;
+            this.TransferInmateByID_comboBox.Location = new System.Drawing.Point(701, 309);
+            this.TransferInmateByID_comboBox.Name = "TransferInmateByID_comboBox";
+            this.TransferInmateByID_comboBox.Size = new System.Drawing.Size(108, 24);
+            this.TransferInmateByID_comboBox.TabIndex = 31;
+            // 
+            // ReleaseInmateByID_comboBox
+            // 
+            this.ReleaseInmateByID_comboBox.FormattingEnabled = true;
+            this.ReleaseInmateByID_comboBox.Location = new System.Drawing.Point(701, 95);
+            this.ReleaseInmateByID_comboBox.Name = "ReleaseInmateByID_comboBox";
+            this.ReleaseInmateByID_comboBox.Size = new System.Drawing.Size(108, 24);
+            this.ReleaseInmateByID_comboBox.TabIndex = 32;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(503, 98);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(178, 17);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "ID of Inmate to be released";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // ReleaseInmate_Button
+            // 
+            this.ReleaseInmate_Button.Location = new System.Drawing.Point(701, 188);
+            this.ReleaseInmate_Button.Name = "ReleaseInmate_Button";
+            this.ReleaseInmate_Button.Size = new System.Drawing.Size(126, 31);
+            this.ReleaseInmate_Button.TabIndex = 34;
+            this.ReleaseInmate_Button.Text = "Release Inmate";
+            this.ReleaseInmate_Button.UseVisualStyleBackColor = true;
+            this.ReleaseInmate_Button.Click += new System.EventHandler(this.ReleaseInmate_Button_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(497, 316);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(198, 17);
+            this.label17.TabIndex = 35;
+            this.label17.Text = "ID of Inmate to be Transferred";
+            // 
+            // TransferInmate_Button
+            // 
+            this.TransferInmate_Button.Location = new System.Drawing.Point(701, 340);
+            this.TransferInmate_Button.Name = "TransferInmate_Button";
+            this.TransferInmate_Button.Size = new System.Drawing.Size(126, 31);
+            this.TransferInmate_Button.TabIndex = 36;
+            this.TransferInmate_Button.Text = "Transfer Inmate";
+            this.TransferInmate_Button.UseVisualStyleBackColor = true;
+            this.TransferInmate_Button.Click += new System.EventHandler(this.TransferInmate_Button_Click);
+            // 
+            // ProhibationPeriod_TextBox
+            // 
+            this.ProhibationPeriod_TextBox.Location = new System.Drawing.Point(701, 160);
+            this.ProhibationPeriod_TextBox.Name = "ProhibationPeriod_TextBox";
+            this.ProhibationPeriod_TextBox.Size = new System.Drawing.Size(108, 22);
+            this.ProhibationPeriod_TextBox.TabIndex = 37;
+            this.ProhibationPeriod_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProhibationPeriod_TextBox_KeyPress);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(507, 165);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(174, 17);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Prohibation Period (years)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(815, 132);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(71, 17);
+            this.label19.TabIndex = 39;
+            this.label19.Text = "Required*";
+            // 
+            // NationalID_TextBox
+            // 
+            this.NationalID_TextBox.Location = new System.Drawing.Point(701, 129);
+            this.NationalID_TextBox.Name = "NationalID_TextBox";
+            this.NationalID_TextBox.Size = new System.Drawing.Size(108, 22);
+            this.NationalID_TextBox.TabIndex = 40;
+            this.NationalID_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NationalID_TextBox_KeyPress);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(608, 134);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 17);
+            this.label20.TabIndex = 41;
+            this.label20.Text = "NationalID";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(815, 163);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 17);
+            this.label21.TabIndex = 42;
+            this.label21.Text = "Required*";
+            // 
+            // Back_Button
+            // 
+            this.Back_Button.Location = new System.Drawing.Point(15, 16);
+            this.Back_Button.Name = "Back_Button";
+            this.Back_Button.Size = new System.Drawing.Size(98, 25);
+            this.Back_Button.TabIndex = 43;
+            this.Back_Button.Text = "Back";
+            this.Back_Button.UseVisualStyleBackColor = true;
+            this.Back_Button.Click += new System.EventHandler(this.Back_Button_Click);
             // 
             // Prison_Warden_Inmates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(882, 585);
+            this.Controls.Add(this.Back_Button);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.NationalID_TextBox);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.ProhibationPeriod_TextBox);
+            this.Controls.Add(this.TransferInmate_Button);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.ReleaseInmate_Button);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.ReleaseInmateByID_comboBox);
+            this.Controls.Add(this.TransferInmateByID_comboBox);
+            this.Controls.Add(this.InmatesID_comboBox);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.ViewAllInmates_Button);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label14);
@@ -343,5 +509,20 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button ViewAllInmates_Button;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox InmatesID_comboBox;
+        private System.Windows.Forms.ComboBox TransferInmateByID_comboBox;
+        private System.Windows.Forms.ComboBox ReleaseInmateByID_comboBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button ReleaseInmate_Button;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button TransferInmate_Button;
+        private System.Windows.Forms.TextBox ProhibationPeriod_TextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox NationalID_TextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button Back_Button;
     }
 }
