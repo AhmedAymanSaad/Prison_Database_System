@@ -179,10 +179,13 @@ namespace PrisonDBApp
 
         private void IDs_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectInmateUsingHisID(Int32.Parse(IDs_comboBox.Text));
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
-
+            try
+            {
+                DataTable dt = controllerObj.SelectInmateUsingHisID(Int32.Parse(IDs_comboBox.Text));
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+            }
+            catch { }
         }
     }
 }

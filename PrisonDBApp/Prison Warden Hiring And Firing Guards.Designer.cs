@@ -312,6 +312,7 @@
             this.NewSector_comboBox.Name = "NewSector_comboBox";
             this.NewSector_comboBox.Size = new System.Drawing.Size(108, 24);
             this.NewSector_comboBox.TabIndex = 29;
+            this.NewSector_comboBox.SelectedIndexChanged += new System.EventHandler(this.NewSector_comboBox_SelectedIndexChanged);
             // 
             // label9
             // 

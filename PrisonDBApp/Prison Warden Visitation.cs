@@ -23,10 +23,13 @@ namespace PrisonDBApp
             MyParent = P;
             MyParent.Hide();
             controllerObj = new Controller();
-
-            DataTable dt1 = controllerObj.SelectInmateIDs();
-            IDs_comboBox.DataSource = dt1;
-            IDs_comboBox.DisplayMember = "ID";
+            try
+            {
+                DataTable dt1 = controllerObj.SelectInmateIDs();
+                IDs_comboBox.DataSource = dt1;
+                IDs_comboBox.DisplayMember = "ID";
+            }
+            catch { }
 
 
 
@@ -56,10 +59,17 @@ namespace PrisonDBApp
 
         private void IDs_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text), today);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
+            DataTable dt = null;
+            try
+            {
+                dt = controllerObj.SelectScheduledVisits(Int32.Parse(IDs_comboBox.Text.ToString()), today);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Refresh();
+            }
+            catch
+            {
 
+            }
 
             VisitsScheduled_comboBox.Items.Clear();
             if (dt != null)

@@ -164,11 +164,15 @@ namespace PrisonDBApp
 
         private void IDs_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = controllerObj.SelectGuardUsingID(Int32.Parse(IDs_ComboBox.Text));
-            var stringArr = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
-            NewType_comboBox.Text = stringArr[4];
-            NewSupervisor_comboBox.Text = stringArr[5];
-            NewSector_comboBox.Text = stringArr[6];
+            try
+            {
+                DataTable dt = controllerObj.SelectGuardUsingID(Int32.Parse(IDs_ComboBox.Text));
+                var stringArr = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+                NewType_comboBox.Text = stringArr[4];
+                NewSupervisor_comboBox.Text = stringArr[5];
+                NewSector_comboBox.Text = stringArr[6];
+            }
+            catch { }
 
 
         }
@@ -196,6 +200,11 @@ namespace PrisonDBApp
                 dataGridView1.Refresh();
 
             }
+        }
+
+        private void NewSector_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

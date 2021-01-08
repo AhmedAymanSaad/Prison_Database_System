@@ -1,32 +1,16 @@
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.exe.config
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.exe
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.pdb
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csprojAssemblyReference.cache
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Form1.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Properties.Resources.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csproj.GenerateResource.cache
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.exe
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.pdb
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden___Hiring_And_Firing_Guards.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.PrisonWarden.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Guard_Warden_Cell_Info.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Inmates.resources
-<<<<<<< HEAD
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.exe.config
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.exe
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\bin\Debug\PrisonDBApp.pdb
-C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csprojAssemblyReference.cache
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Form1.resources
+C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Imprisoned_Inmates.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Inmates.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Guard_Warden_Cell_Info.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden___Hiring_And_Firing_Guards.resources
+C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Visitation.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.PrisonWarden.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Properties.Resources.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csproj.GenerateResource.cache
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csproj.CoreCompileInputs.cache
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.exe
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.pdb
-=======
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Imprisoned_Inmates.resources
-C:\Users\Mohammed\Downloads\CMPN202\Pr\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.Prison_Warden_Visitation.resources
->>>>>>> 71d9557cc8ffaa0fae90dc0e7c911bf2736ce9cf
+C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.csprojAssemblyReference.cache
