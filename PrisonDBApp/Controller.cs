@@ -330,12 +330,14 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
-        //---------------------------------------------- For Guard View -------------------------------------------------
+        //---------------------------------------------- For Civilian View Form----------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
         //=============================Guard Assignments======================================================
         public DataTable GetGuardAssignments()
         {
@@ -355,33 +357,28 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
         public DataTable GetGuardCountInSectorNo(int s)
+=======
+        //------------------------------Civlian Account Creation-------------------------------------------------------------
+        public int InsertCivilianAccount(int username, int password)
+>>>>>>> 868712be8d6f7ff77257e98291d56c23d6e87121
         {
-            string query = "select ID, Fname, Lname, Type from Guard join Sector on SectorID=Sectorno where SectorID=" + s;
-            return dbMan.ExecuteReader(query);
+            string query = "INSERT into Log_in (ID, Password, Usertype)" + "Values (" + username + ", " + password + ", 'Civilian');";
+            return dbMan.ExecuteNonQuery(query);
         }
 
-
-        //====================================Visitors Data===================================
-        public DataTable GetVisitors()
+        public int UpdateVisitorInfo(int PhoneNumber)
         {
-            string query = "select * from Visitor";
-            return dbMan.ExecuteReader(query);
+            string query = "Update visitor SET phone number =" + PhoneNumber + ";";
+            return dbMan.ExecuteNonQuery(query);
+
         }
 
-        public DataTable GetVisitorVisits(int nid)
+        public int BookAVisit(int inmateID, int VisitorID, DateTime StartDate, DateTime EndDate)
         {
-            string query = "select Concat(visitor.Fname,' ',visitor.Lname) as \"Visitor Name\",Concat(Inmate.Fname,' ',Inmate.Lname) as \"Inmate Name\" ,InmateID,StartDate,EndDate "
-                + "from Visitor join Visiting on National_ID=VisitorID join Inmate on ID = InmateID where VisitorID="+nid;
-            return dbMan.ExecuteReader(query);
+            string query = "INSERT into Visiting (InmateID, VisitorID, StartDate, EndDate)" + "Values (" + inmateID + ", " + VisitorID + ", '" + StartDate + "', '" + EndDate + "', ';";
+            return dbMan.ExecuteNonQuery(query);
         }
-
-        public DataTable GetVisitorRelations(int nid)
-        {
-            string query = "select Concat(visitor.Fname,' ',visitor.Lname) as \"Visitor Name\",Concat(Inmate.Fname,' ',Inmate.Lname) as \"Inmate Name\" ,Relation.InmateID,Relation ,count(*) as \"Times Visited\" "
-                + "from Visitor join Relation on National_ID=Relation.VisitorID join Inmate on ID=Relation.InmateID join Visiting on National_ID=Visiting.VisitorID "
-                + "where Visiting.InmateID=Relation.InmateID and National_ID=11234 group by  visitor.Fname,visitor.Lname,Inmate.Fname,Inmate.Lname,Relation.InmateID,Relation ";
-            return dbMan.ExecuteReader(query);
-        }
+<<<<<<< HEAD
 
         //============================================Inmate Data=====================================================
         public DataTable SelectJobs()
@@ -464,5 +461,7 @@ namespace PrisonDBApp
             string query = "update Facility set Expenses='" +expf + "' where Facilitynumber= " + id;
             return dbMan.ExecuteNonQuery(query);
         }
+=======
+>>>>>>> 868712be8d6f7ff77257e98291d56c23d6e87121
     }
 }

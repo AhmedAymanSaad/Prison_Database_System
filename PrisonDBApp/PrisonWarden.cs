@@ -42,10 +42,5 @@ namespace PrisonDBApp
             a.Show();
 
         }
-
-        private void PrisonWarden_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
