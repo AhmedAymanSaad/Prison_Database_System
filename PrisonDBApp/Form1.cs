@@ -28,5 +28,11 @@ namespace PrisonDBApp
             GuardView g = new GuardView();
             g.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CivSignUpForm a = new CivSignUpForm(this);
+            a.Show();
+        }
     }
 }
