@@ -67,6 +67,12 @@
     <Compile Include="GuardView.Designer.cs">
       <DependentUpon>GuardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="InmateData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InmateData.Designer.cs">
+      <DependentUpon>InmateData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prison Warden Imprisoned Inmates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuardView.resx">
       <DependentUpon>GuardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InmateData.resx">
+      <DependentUpon>InmateData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prison Warden Imprisoned Inmates.resx">
       <DependentUpon>Prison Warden Imprisoned Inmates.cs</DependentUpon>

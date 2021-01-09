@@ -21,7 +21,7 @@ namespace PrisonDBApp
             MyParent.Hide();
             controllerObj = new Controller();
 
-            DataTable dt = controllerObj.SelectFacilityNo();
+            DataTable dt = controllerObj.SelectSectorNo();
             comboBox1.DataSource = dt;
             comboBox1.DisplayMember = "SectorID";
 
@@ -52,6 +52,17 @@ namespace PrisonDBApp
             DataTable dt = controllerObj.GetGuardCountInSectorNo(int.Parse(comboBox1.Text.ToString()));
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

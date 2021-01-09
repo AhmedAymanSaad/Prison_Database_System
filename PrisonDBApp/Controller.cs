@@ -349,7 +349,7 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
-        public DataTable SelectFacilityNo()
+        public DataTable SelectSectorNo()
         {
             string query = "select SectorID from Sector";
             return dbMan.ExecuteReader(query);
@@ -383,5 +383,86 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        //============================================Inmate Data=====================================================
+        public DataTable SelectJobs()
+        {
+            string query = "select * from Prisoner_Employment";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectInmatewithJob(int i)
+        {
+            string query = "select * from Inmate join Prisoner_Employment on ID=Inmateassigned where ID="+i;
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectInmateJob(int i)
+        {
+            string query = "select * from Prisoner_Employment where JobID="+i;
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable GetInmatesNoJob()
+        {
+            string query = "(select ID from Inmate) except (select ID from Inmate join Prisoner_Employment on ID=Inmateassigned)";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int AssignInmateJob(int id,int sal,string job)
+        {
+            string query = "insert into  Prisoner_Employment (Inmateassigned,Salary,Jobdescription) "
+                + "values ("+id+","+sal+",'"+job+"')";
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public DataTable SelectInmateSector(int i)
+        {
+            string query = "select * from Inmate join Cell on Inmate.Cellno=Cell.Cellnumber join Sector on Sector.SectorID=cell.SectorID where Sector.SectorID=" + i;
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectAllFacilities()
+        {
+            string query = "select * from Facility";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectAllFacilitiesRepaired()
+        {
+            string query = "select * from Facility where Expenses=0 or Expenses is null";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectFacility(int i)
+        {
+            string query = "select * from Facility where Facilitynumber=" + i;
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectAllCells()
+        {
+            string query = "select * from Cell";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectAllCellsRepaired()
+        {
+            string query = "select * from Cell where Repairs is null ";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectCell(int i)
+        {
+            string query = "select * from Cell where Cellnumber=" + i;
+            return dbMan.ExecuteReader(query);
+        }
+        public int ReportCell(int id, string report)
+        {
+            string query = "update Cell set Repairs='"+report+"' where Cellnumber= "+id;    
+            return dbMan.ExecuteNonQuery(query);
+        }
+        public int ReportFacility(int id, int exp)
+        {
+            string q1 = "select Expenses from Facility where Facilitynumber="+id;
+            int expf = exp + (int)dbMan.ExecuteScalar(q1);
+            string query = "update Facility set Expenses='" +expf + "' where Facilitynumber= " + id;
+            return dbMan.ExecuteNonQuery(query);
+        }
     }
 }

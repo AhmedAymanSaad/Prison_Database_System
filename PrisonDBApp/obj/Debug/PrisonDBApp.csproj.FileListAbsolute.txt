@@ -17,3 +17,4 @@ C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.GuardView.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.GuardAssignments.resources
 C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.VisitorData.resources
+C:\Users\ahmed\Desktop\CMPN202Proj\Prison_Database_System\PrisonDBApp\obj\Debug\PrisonDBApp.InmateData.resources

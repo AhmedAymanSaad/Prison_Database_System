@@ -50,5 +50,11 @@ namespace PrisonDBApp
             dataGridView1.DataSource = dt;
             dataGridView1.Refresh();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
+        }
     }
 }

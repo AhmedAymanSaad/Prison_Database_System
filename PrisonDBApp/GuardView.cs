@@ -33,5 +33,11 @@ namespace PrisonDBApp
             VisitorData v = new VisitorData(this);
             v.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InmateData f = new InmateData(this);
+            f.Show();
+        }
     }
 }
