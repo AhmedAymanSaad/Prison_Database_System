@@ -85,7 +85,6 @@
             this.Controls.Add(this.Form_for_HiringAndFiring_Button);
             this.Name = "PrisonWarden";
             this.Text = "PrisonWarden";
-            this.Load += new System.EventHandler(this.PrisonWarden_Load);
             this.ResumeLayout(false);
 
         }
