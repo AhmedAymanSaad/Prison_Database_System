@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Prison_Warden_button = new System.Windows.Forms.Button();
-            this.Civlian_View_Button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Prison_Warden_button
@@ -42,22 +42,22 @@
             this.Prison_Warden_button.UseVisualStyleBackColor = true;
             this.Prison_Warden_button.Click += new System.EventHandler(this.Prison_Warden_button_Click);
             // 
-            // Civlian_View_Button
+            // button1
             // 
-            this.Civlian_View_Button.Location = new System.Drawing.Point(93, 119);
-            this.Civlian_View_Button.Name = "Civlian_View_Button";
-            this.Civlian_View_Button.Size = new System.Drawing.Size(204, 40);
-            this.Civlian_View_Button.TabIndex = 1;
-            this.Civlian_View_Button.Text = "Civlian View";
-            this.Civlian_View_Button.UseVisualStyleBackColor = true;
-            this.Civlian_View_Button.Click += new System.EventHandler(this.Civlian_View_Button_Click);
+            this.button1.Location = new System.Drawing.Point(93, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 38);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Guard View";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 319);
-            this.Controls.Add(this.Civlian_View_Button);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Prison_Warden_button);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -68,7 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button Prison_Warden_button;
-        private System.Windows.Forms.Button Civlian_View_Button;
+        private System.Windows.Forms.Button button1;
     }
 }
 

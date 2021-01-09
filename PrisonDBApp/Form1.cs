@@ -23,10 +23,10 @@ namespace PrisonDBApp
             a.Show();
         }
 
-        private void Civlian_View_Button_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Civ_ViewBoard a = new Civ_ViewBoard();
-            a.Show();
+            GuardView g = new GuardView();
+            g.Show();
         }
     }
 }
