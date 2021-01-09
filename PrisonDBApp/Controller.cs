@@ -337,6 +337,7 @@ namespace PrisonDBApp
         //-------------------------------------------------------------------------------------------------------------------
 
 
+
         //=============================Guard Assignments======================================================
         public DataTable GetGuardAssignments()
         {
@@ -355,9 +356,7 @@ namespace PrisonDBApp
             string query = "select SectorID from Sector";
             return dbMan.ExecuteReader(query);
         }
-       
-
-        
+   
 
         public DataTable SelectFacilityNo()
         {
@@ -476,5 +475,7 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+
+        
     }
 }
