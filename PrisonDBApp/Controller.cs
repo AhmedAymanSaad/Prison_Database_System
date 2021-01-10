@@ -171,15 +171,13 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public int InsertCivilianAccount(int x, int y)
+        public int InsertCivilianAccount(int Username, int Password)
         {
-            return 1;
+            string query = "Insert into Log_in (Username, Password, Usertype) Values (" + Username + "," + Password + ", 'Visitor');";
+            return dbMan.ExecuteNonQuery(query);
         }
 
-        public int BookAVisit(int x, int y, DateTime z,DateTime l)
-        {
-            return 5;
-        }
+        
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
         //---------------------------------------------- For Repairs Form----------------------------------------------------
