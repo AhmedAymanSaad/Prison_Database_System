@@ -457,6 +457,11 @@ namespace PrisonDBApp
             string query = "select * from Facility where Expenses=0 or Expenses is null";
             return dbMan.ExecuteReader(query);
         }
+        public DataTable SelectAllFacilitiesNotRepaired()
+        {
+            string query = "select * from Facility where Expenses>0";
+            return dbMan.ExecuteReader(query);
+        }
         public DataTable SelectFacility(int i)
         {
             string query = "select * from Facility where Facilitynumber=" + i;
@@ -471,6 +476,11 @@ namespace PrisonDBApp
         public DataTable SelectAllCellsRepaired()
         {
             string query = "select * from Cell where Repairs is null ";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable SelectAllCellsNotRepaired()
+        {
+            string query = "select * from Cell where Repairs is not null ";
             return dbMan.ExecuteReader(query);
         }
         public DataTable SelectCell(int i)
@@ -497,6 +507,52 @@ namespace PrisonDBApp
                 + "from Visitor join Relation on National_ID=Relation.VisitorID join Inmate on ID=Relation.InmateID join Visiting on National_ID=Visiting.VisitorID "
                 + "where Visiting.InmateID=Relation.InmateID and National_ID=11234 group by  visitor.Fname,visitor.Lname,Inmate.Fname,Inmate.Lname,Relation.InmateID,Relation ";
             return dbMan.ExecuteReader(query);
+        }
+
+        public int GetInmateCountInCell(int id)
+        {
+            int incount = 0;
+            string storedprocedure = StoredProcs.GetInmateCountInCell;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@cnum", id);
+            DataTable dt = dbMan.ExecuteReader(storedprocedure, Parameters);
+            var stringArr = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            incount = int.Parse(stringArr[0]);
+            return incount;
+
+        }
+        public DataTable GetEmptyCells(int c,int cid)
+        {
+            string storedprocedure = StoredProcs.GetEmptyCells;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@inmatecount", c); 
+            Parameters.Add("@cnum", cid);
+            return dbMan.ExecuteReader(storedprocedure, Parameters);
+        }
+
+        public int TransferCells(int cn, int co)
+        {
+            string storedprocedure = StoredProcs.TransferCells;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@cnumnew", cn);
+            Parameters.Add("@cnumold", co);
+            return dbMan.ExecuteNonQuery(storedprocedure, Parameters);
+        }
+
+        public int RepairCell(int id)
+        {
+            string storedprocedure = StoredProcs.RepairCell;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@cnum", id);
+            return dbMan.ExecuteNonQuery(storedprocedure, Parameters);
+        }
+
+        public int RepairFacility(int id)
+        {
+            string storedprocedure = StoredProcs.RepairFacility;
+            Dictionary<string, object> Parameters = new Dictionary<string, object>();
+            Parameters.Add("@facnum", id);
+            return dbMan.ExecuteNonQuery(storedprocedure, Parameters);
         }
 
 

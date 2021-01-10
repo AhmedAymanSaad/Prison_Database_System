@@ -40,6 +40,12 @@ namespace PrisonDBApp
             DataTable dt6 = controllerObj.SelectAllCellsRepaired();
             comboBox6.DataSource = dt6;
             comboBox6.DisplayMember = "Cellnumber";
+            DataTable dt7 = controllerObj.SelectAllFacilitiesNotRepaired();
+            comboBox8.DataSource = dt7;
+            comboBox8.DisplayMember = "Facilitynumber";
+            DataTable dt8 = controllerObj.SelectAllCellsNotRepaired();
+            comboBox9.DataSource = dt8;
+            comboBox9.DisplayMember = "Cellnumber";
         }
 
         private void InmateData_Load(object sender, EventArgs e)
@@ -181,6 +187,14 @@ namespace PrisonDBApp
                 dataGridView1.Refresh();
             }
             catch { }
+            try
+            {
+                int incount = controllerObj.GetInmateCountInCell(int.Parse(comboBox6.Text.ToString()));
+                DataTable dt = controllerObj.GetEmptyCells(incount, int.Parse(comboBox6.Text.ToString()));
+                comboBox7.DataSource = dt;
+                comboBox7.DisplayMember = "Cellno";
+            }
+            catch { }
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -192,9 +206,11 @@ namespace PrisonDBApp
             else
             {
                 controllerObj.ReportCell(int.Parse(comboBox6.Text.ToString()),Repair_textBox.Text);
+                controllerObj.TransferCells(int.Parse(comboBox7.Text.ToString()), int.Parse(comboBox6.Text.ToString()));
                 DataTable dt6 = controllerObj.SelectAllCellsRepaired();
                 comboBox6.DataSource = dt6;
                 comboBox6.DisplayMember = "Cellnumber";
+
             }
         }
 
@@ -218,6 +234,32 @@ namespace PrisonDBApp
                 comboBox5.DataSource = dt5;
                 comboBox5.DisplayMember = "Facilitynumber";
             }
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            controllerObj.RepairFacility(int.Parse(comboBox8.Text.ToString()));
+            DataTable dt7 = controllerObj.SelectAllFacilitiesNotRepaired();
+            comboBox8.DataSource = dt7;
+            comboBox8.DisplayMember = "Facilitynumber";
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            controllerObj.RepairCell(int.Parse(comboBox9.Text.ToString()));
+            DataTable dt8 = controllerObj.SelectAllCellsNotRepaired();
+            comboBox9.DataSource = dt8;
+            comboBox9.DisplayMember = "Cellnumber";
         }
     }
 }
