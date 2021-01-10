@@ -118,7 +118,7 @@ foreign key (SolitaryCellnumber) references Solitary_Confinement,
 
 create table Prisoner_Employment
 (
-JobID int,
+JobID int identity(1,1),
 Salary int,
 Jobdescription varchar(50),
 primary key(JobID),
