@@ -24,6 +24,7 @@ namespace PrisonDBApp
             MyParent.Hide();
             DataTable dt = controllerObj.GetInmateNames();
             InmateNameComboBox.DataSource = dt;
+            InmateNameComboBox.DisplayMember = "Inmate Name";
             
         }
 

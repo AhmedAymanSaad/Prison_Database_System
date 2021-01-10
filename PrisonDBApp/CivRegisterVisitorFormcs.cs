@@ -18,6 +18,11 @@ namespace PrisonDBApp
         public CivRegisterVisitorFormcs(int UN, Form P)
         {
             InitializeComponent();
+            controllerObj = new Controller();
+            Username = UN;
+            MyParent = P;
+            MinitRegTextbox.MaxLength = 1;
+
         }
 
         private void RegisterAsVisitorButton_Click(object sender, EventArgs e)
