@@ -206,5 +206,20 @@ namespace PrisonDBApp
         {
 
         }
+
+        private void MiddleName_TextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LastName_TextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FirstName_TextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

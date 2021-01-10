@@ -21,6 +21,12 @@ namespace PrisonDBApp
         {
             dbMan.CloseConnection();
         }
+        //----------------------------------------------LOG_IN------------------------------------------------------
+        public string LogIn(int username, int password)
+        {
+            string query = "select Usertype from Log_In where ID='"+username+"' and Password='"+password+"';";
+            return (string)dbMan.ExecuteScalar(query);
+        }
 
         //--------------------------------------------------------------------------------------------------------
         public DataTable SelectAllGuards()
@@ -39,6 +45,12 @@ namespace PrisonDBApp
         public DataTable SelectAllInmates()
         {
             string query = "select * from Inmate;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectUserType()
+        {
+            string query = "SELECT DISTINCT Usertype FROM Log_In;";
             return dbMan.ExecuteReader(query);
         }
 
@@ -153,7 +165,21 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateVisitorInfo(int PhoneNumber, int Username)
+        {
+            string query = "Update Visitor set Phone_Number = " + PhoneNumber + " where Username = " + Username + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
 
+        public int InsertCivilianAccount(int x, int y)
+        {
+            return 1;
+        }
+
+        public int BookAVisit(int x, int y, DateTime z,DateTime l)
+        {
+            return 5;
+        }
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
         //---------------------------------------------- For Repairs Form----------------------------------------------------
@@ -337,6 +363,7 @@ namespace PrisonDBApp
         //-------------------------------------------------------------------------------------------------------------------
 
 
+
         //=============================Guard Assignments======================================================
         public DataTable GetGuardAssignments()
         {
@@ -355,9 +382,7 @@ namespace PrisonDBApp
             string query = "select SectorID from Sector";
             return dbMan.ExecuteReader(query);
         }
-       
-
-        
+   
 
         public DataTable SelectFacilityNo()
         {
@@ -476,5 +501,106 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+
+        //============================================Civilian view=====================================================
+        public int UpdatePassword(int username, int oldpassword, int newpassword)
+        {
+            int CorrectPassword;
+            string query = "Select * FROM Log_in WHERE ID = " + username + " AND Password = " + oldpassword;
+            CorrectPassword = dbMan.ExecuteNonQuery(query);
+            if (CorrectPassword == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                query = "Update Log_in SET password = " + newpassword + " WHERE ID = " + username;
+                return dbMan.ExecuteNonQuery(query);
+            }
+        }
+
+        public int RegisterVisitorWithPhoneNumber(int NationalID, string Fname, string Minit, string Lname, int PhoneNumber, int Username)
+        {
+            string query = "Insert INTO Visitor (National_ID, Fname, Minit, Lname, Phone_Number, Username)"
+              + " Values( " + NationalID + ", '" + Fname + "' ,'" + Minit + "' , '" + Lname + "', " + PhoneNumber + ", " + Username + ");";
+                return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int RegisterVisitorWithoutPhoneNumber(int NationalID, string Fname, string Minit, string Lname, int Username)
+        {
+            string query = "Insert INTO Visitor (National_ID, Fname, Minit, Lname, Phone_Number, Username)"
+              + " Values( " + NationalID + ", '" + Fname + "' ,'" + Minit + "' , '" + Lname + "',null ," + Username + ");";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int CheckIfRegistered(int username)
+        {
+            string query = "Select * from Visitor where Username = " + username;
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable GetInmateNames()
+        {
+            string query = "Select Concat(Inmate.Fname,' ', Inmate.Lname) as \"Inmate Name\" FROM Inmate;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public int InsertAVisit(string ComboBoxName, int VisitorID, DateTime StartDate, DateTime EndDate)
+        {
+            string dividestring = ComboBoxName;
+            string[] Name = dividestring.Split(' ');
+
+            string query = "Insert INTO Visiting (InmateID, VisitorID, StartDate, EndDate)" +
+                "Values ((Select ID From Inmate where Fname = '" + Name[0] + "' AND Lname = '" + Name[1] + "')," +
+                VisitorID + ", '" + StartDate + "', '" + EndDate + "');";
+            return dbMan.ExecuteNonQuery(query);
+                
+        }
+        
+        public int UpdateAVisit(string ComboBoxName, int VisitorID, DateTime StartDate, DateTime EndDate)
+        {
+            string dividestring = ComboBoxName;
+            string[] Name = dividestring.Split(' ');
+
+            string query = "Update Visiting SET StartDate =  '" + StartDate + "', EndDate = '" + EndDate + "'" + "WHERE InmateID = " +
+                "(Select ID From Inmate where Fname = '" + Name[0] + "' AND Lname = '" + Name[1] + "') AND " +
+                " VisitorID = " + VisitorID + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public int DeleteAVisit(string ComboBoxName, int VisitorID, DateTime StartDate, DateTime EndDate)
+        {
+            string dividestring = ComboBoxName;
+            string[] Name = dividestring.Split(' ');
+
+            string query = "Delete from Visiting WHERE InmateID = " + "(Select ID From Inmate where Fname = '" + Name[0] + "'AND Lname = '" + Name[1] + "') AND" +
+                " VisitorID = " + VisitorID + ";";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+        public DataTable CheckIfConvictedName(string Fname, string minit, string Lname)
+        {
+            string query = "Select Fname, Lname, Minit, Status, Originalsentence, ReleaseDate, ProbationPeriod from Released_Convict where " +
+                "Fname = '" + Fname + "' AND Minit = '" + minit + "' AND Lname = '" + Lname + "';";
+            return dbMan.ExecuteReader(query);
+        }
+        public DataTable CheckifConvictedNatID(int NationalID)
+        {
+            string query = "Select Fname, Lname, Minit, Status, Originalsentence, ReleaseDate, ProbationPeriod from Released_convict where " +
+                "NationalID = " + NationalID +  ";";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable CheckSentenceName(string Fname, string Minit, string Lname)
+        {
+            string query = "Select Charge, Sentence, ConvictionDate, Charge WHERE Fname = '" + Fname + "' AND Minit = '" + Minit + "' AND Lname = '" + Lname + "';";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable CheckSetnenceID(int ID)
+        {
+            string query = "Select Charge, Sentence, ConvictionDate, Charge WHERE ID = " + ID + ";";
+            return dbMan.ExecuteReader(query);
+        }
     }
 }
