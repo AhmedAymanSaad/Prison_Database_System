@@ -241,6 +241,10 @@ values
 (3,15465,'Lawyer')
 
 --Stored Procedures--
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 create procedure GetEmptyCells
 @inmatecount int,
 @cnum int
@@ -253,7 +257,10 @@ group by Cellno
 having count(*)+@inmatecount <= 3)
 end
 go
-
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 create procedure GetInmateCountInCell
 @cnum int
 as
@@ -263,7 +270,10 @@ from Inmate join Cell on Cellno=Cellnumber
 where Cellno=@cnum
 group by Cellno
 end
-
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 create procedure TransferCells
 @cnumnew int,
 @cnumold int
@@ -273,7 +283,10 @@ update Inmate SET Cellno=@cnumnew
 where Cellno=@cnumold
 end
 go
-
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 create procedure RepairFacility
 @facnum int
 as
@@ -282,7 +295,10 @@ update Facility set Expenses=0
 where Facilitynumber=@facnum
 end
 go
-
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 create procedure RepairCell
 @cnum int
 as
