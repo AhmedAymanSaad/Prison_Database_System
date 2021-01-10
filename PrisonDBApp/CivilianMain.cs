@@ -32,6 +32,10 @@ namespace PrisonDBApp
         private void Sign_Up_Button_Click(object sender, EventArgs e)
         {
             CivSignUpForm a = new CivSignUpForm(this);
+            if (controllerObj.CheckIfRegistered(Username) == 1)
+            {
+                MessageBox.Show("You are already registered!");
+            }
             a.Show();
         }
 
