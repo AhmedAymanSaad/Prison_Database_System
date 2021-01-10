@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartDateCalendar = new System.Windows.Forms.MonthCalendar();
-            this.EndDateCalendar = new System.Windows.Forms.MonthCalendar();
             this.VisitVisitortextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,22 +40,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // StartDateCalendar
-            // 
-            this.StartDateCalendar.Location = new System.Drawing.Point(277, 18);
-            this.StartDateCalendar.MaxSelectionCount = 1;
-            this.StartDateCalendar.Name = "StartDateCalendar";
-            this.StartDateCalendar.TabIndex = 0;
-            this.StartDateCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.StartDateCalendar_DateChanged);
-            // 
-            // EndDateCalendar
-            // 
-            this.EndDateCalendar.Location = new System.Drawing.Point(544, 18);
-            this.EndDateCalendar.MaxSelectionCount = 1;
-            this.EndDateCalendar.Name = "EndDateCalendar";
-            this.EndDateCalendar.TabIndex = 1;
             // 
             // VisitVisitortextBox
             // 
@@ -89,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(205, 98);
+            this.label3.Location = new System.Drawing.Point(301, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 6;
@@ -98,7 +83,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(481, 98);
+            this.label4.Location = new System.Drawing.Point(570, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 7;
@@ -173,11 +158,28 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Enter the visit\'s data and click here if you wish to cancel it";
             // 
+            // EndDatePicker
+            // 
+            this.EndDatePicker.Location = new System.Drawing.Point(500, 46);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.EndDatePicker.TabIndex = 23;
+            // 
+            // StartDatePicker
+            // 
+            this.StartDatePicker.Location = new System.Drawing.Point(243, 46);
+            this.StartDatePicker.Name = "StartDatePicker";
+            this.StartDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.StartDatePicker.TabIndex = 24;
+            this.StartDatePicker.ValueChanged += new System.EventHandler(this.DateTimePicker2_ValueChanged);
+            // 
             // VisitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.StartDatePicker);
+            this.Controls.Add(this.EndDatePicker);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -190,8 +192,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.VisitVisitortextBox);
-            this.Controls.Add(this.EndDateCalendar);
-            this.Controls.Add(this.StartDateCalendar);
             this.Name = "VisitForm";
             this.Text = "Managing Visits Form";
             this.Load += new System.EventHandler(this.VisitForm_Load);
@@ -201,9 +201,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MonthCalendar StartDateCalendar;
-        private System.Windows.Forms.MonthCalendar EndDateCalendar;
         private System.Windows.Forms.TextBox VisitVisitortextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -216,5 +213,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker EndDatePicker;
+        private System.Windows.Forms.DateTimePicker StartDatePicker;
     }
 }

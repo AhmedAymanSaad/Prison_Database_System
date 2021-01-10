@@ -25,7 +25,13 @@ namespace PrisonDBApp
             DataTable dt = controllerObj.GetInmateNames();
             InmateNameComboBox.DataSource = dt;
             InmateNameComboBox.DisplayMember = "Inmate Name";
-            
+
+            StartDatePicker.Format = DateTimePickerFormat.Custom;
+            StartDatePicker.CustomFormat = "yyyy/MM/dd hh:mm:ss";
+
+            EndDatePicker.Format = DateTimePickerFormat.Custom;
+            EndDatePicker.CustomFormat = "yyyy/MM/dd hh:mm:ss";
+
         }
 
         private void VisitForm_Load(object sender, EventArgs e)
@@ -33,23 +39,15 @@ namespace PrisonDBApp
 
         }
 
-        //check that the user did select a date using his mouse
-        private void StartDateCalendar_DateSelected(object sender, System.Windows.Forms.DateRangeEventArgs e)
-        {
-            FirstDateSet = 1;
-        }
-
-        //check that the user did select a date using his mouse
-        private void EndDateCalendar_DateSelected(object sender, System.Windows.Forms.DateRangeEventArgs e)
-        {
-            SecondDateSet = 1;
-        }
-
+       
 
         private void BookVisitButton_Click(object sender, EventArgs e)
         {
             int BookVisit;
-            if (DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()) > DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()))
+            
+           
+            
+            if (StartDatePicker.Value > EndDatePicker.Value)
             {
                 MessageBox.Show("The end date must be greater than the start date");
             }
@@ -57,22 +55,19 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Please enter your nationalID and the visitee's name");
             }
-            else if (FirstDateSet == 0 || SecondDateSet == 0)
-            {
-                MessageBox.Show("Please select both dates");
-            }
-
-            BookVisit = controllerObj.InsertAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()),
-                DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()));
-            if (BookVisit == 0)
-            {
-                MessageBox.Show("visit could not be booked, please check data and that a visit is possible");
-            }
             else
             {
-                MessageBox.Show("Visit booked!");
+                BookVisit = controllerObj.InsertAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), StartDatePicker.Value,
+                   EndDatePicker.Value);
+                if (BookVisit == 0)
+                {
+                    MessageBox.Show("visit could not be booked, please check data and that a visit is possible");
+                }
+                else
+                {
+                    MessageBox.Show("Visit booked!");
+                }
             }
-
                 
         }
 
@@ -104,7 +99,10 @@ namespace PrisonDBApp
         private void UpdateVisitButton_Click(object sender, EventArgs e)
         {
             int UpdateVisit;
-            if (DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()) > DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()))
+            
+
+
+            if ((StartDatePicker.Value) > (EndDatePicker.Value))
             {
                 MessageBox.Show("The end date must be greater than the start date");
             }
@@ -117,8 +115,9 @@ namespace PrisonDBApp
                 MessageBox.Show("Please select both dates");
             }
 
-            UpdateVisit = controllerObj.UpdateAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()),
-                DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()));
+            UpdateVisit = controllerObj.UpdateAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
+                (EndDatePicker.Value));
+               
             if (UpdateVisit == 0)
             {
                 MessageBox.Show("visit could not be updated, please check data and that a visit exists");
@@ -132,7 +131,8 @@ namespace PrisonDBApp
         private void Button1_Click(object sender, EventArgs e)
         {
             int DeleteVisit;
-            if (DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()) > DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()))
+            
+            if ((StartDatePicker.Value) > (StartDatePicker.Value))
             {
                 MessageBox.Show("The end date must be greater than the start date");
             }
@@ -145,8 +145,8 @@ namespace PrisonDBApp
                 MessageBox.Show("Please select both dates");
             }
 
-            DeleteVisit = controllerObj.DeleteAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), DateTime.Parse(StartDateCalendar.SelectionRange.Start.ToString()),
-                DateTime.Parse(EndDateCalendar.SelectionRange.Start.ToString()));
+            DeleteVisit = controllerObj.DeleteAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
+                (EndDatePicker.Value));
             if (DeleteVisit == 0)
             {
                 MessageBox.Show("visit could not be deleted, please check data and that it exists");
@@ -155,6 +155,11 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Visit deleted!");
             }
+        }
+
+        private void DateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

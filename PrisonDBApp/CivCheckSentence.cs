@@ -21,6 +21,7 @@ namespace PrisonDBApp
             SentenceMiniTextBox.MaxLength = 1;
             MyParent = P;
             MyParent.Hide();
+            controllerObj = new Controller();
         }
 
         private void SentCheckButton_Click(object sender, EventArgs e)

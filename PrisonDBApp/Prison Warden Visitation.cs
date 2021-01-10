@@ -114,6 +114,11 @@ namespace PrisonDBApp
                 }
             }
         }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

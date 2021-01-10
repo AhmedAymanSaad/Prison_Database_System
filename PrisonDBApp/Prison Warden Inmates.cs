@@ -260,5 +260,10 @@ namespace PrisonDBApp
             MyParent.Visible = true;
             this.Hide();
         }
+
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
