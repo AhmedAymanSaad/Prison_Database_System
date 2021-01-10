@@ -14,15 +14,15 @@ namespace PrisonDBApp
     {
         Controller controllerObj;
         Form MyParent;
-        int FirstDateSet = 0;
-        int SecondDateSet = 0;
-        public VisitForm(Form P)
+        int Username;
+        public VisitForm(Form P, int UN)
         {
+            Username = UN;
             controllerObj = new Controller();
             InitializeComponent();
             MyParent = P;
             MyParent.Hide();
-            DataTable dt = controllerObj.GetInmateNames();
+            DataTable dt = controllerObj.GetInmateNames(Username);
             InmateNameComboBox.DataSource = dt;
             InmateNameComboBox.DisplayMember = "Inmate Name";
 
@@ -110,10 +110,7 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Please enter your nationalID and the visitee's name");
             }
-            else if (FirstDateSet == 0 || SecondDateSet == 0)
-            {
-                MessageBox.Show("Please select both dates");
-            }
+           
 
             UpdateVisit = controllerObj.UpdateAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
                 (EndDatePicker.Value));
@@ -140,11 +137,7 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Please enter your nationalID and the visitee's name");
             }
-            else if (FirstDateSet == 0 || SecondDateSet == 0)
-            {
-                MessageBox.Show("Please select both dates");
-            }
-
+         
             DeleteVisit = controllerObj.DeleteAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
                 (EndDatePicker.Value));
             if (DeleteVisit == 0)

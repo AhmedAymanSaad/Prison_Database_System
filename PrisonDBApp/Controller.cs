@@ -408,6 +408,14 @@ namespace PrisonDBApp
             return dbMan.ExecuteReader(query);
         }
 
+        public int InsertRelation(int InmateID, int VisitorID, string Relation)
+        {
+            string query = "Insert INTO Relation (InmateID, VisitorID, Relation) Values (" +
+                InmateID + ", " + VisitorID + ", '" + Relation + "');";
+            return dbMan.ExecuteNonQuery(query);
+        }
+
+
 
         //============================================Inmate Data=====================================================
         public DataTable SelectJobs()
@@ -593,9 +601,11 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
-        public DataTable GetInmateNames()
+        public DataTable GetInmateNames(int Username)
         {
-            string query = "Select Concat(Inmate.Fname,' ', Inmate.Lname) as \"Inmate Name\" FROM Inmate;";
+            string query = "Select Concat(Inmate.Fname,' ', Inmate.Lname) as \"Inmate Name\" FROM Inmate, Relation, Visitor"
+                + " WHERE VisitorID = National_ID AND InmateID = Inmate.ID AND VisitorID = "
+                + "(Select National_ID from Visitor where username = " + Username + ");";
             return dbMan.ExecuteReader(query);
         }
 
