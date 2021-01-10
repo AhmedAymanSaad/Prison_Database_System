@@ -92,7 +92,7 @@ namespace PrisonDBApp
         //--------------------------------------------------------------------------------------------------------
         public DataTable SelectGuardTypes()
         {
-            string query = "select Distinct Type from Guard;";
+            string query = "select Distinct Type from Guard where Type!='Warden';";
             return dbMan.ExecuteReader(query);
         }
 
