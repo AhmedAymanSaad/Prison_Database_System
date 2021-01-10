@@ -240,8 +240,57 @@ values
 (2,10324,'Sister'),
 (3,15465,'Lawyer')
 
+--Stored Procedures--
+create procedure GetEmptyCells
+@inmatecount int,
+@cnum int
+as
+begin 
+(select Cellno, count(*)
+from Inmate join Cell on Cellno=Cellnumber
+where Cellno!=@cnum and Repairs is null 
+group by Cellno
+having count(*)+@inmatecount <= 3)
+end
+go
 
+create procedure GetInmateCountInCell
+@cnum int
+as
+begin 
+select count(*)
+from Inmate join Cell on Cellno=Cellnumber
+where Cellno=@cnum
+group by Cellno
+end
 
+create procedure TransferCells
+@cnumnew int,
+@cnumold int
+as
+begin 
+update Inmate SET Cellno=@cnumnew
+where Cellno=@cnumold
+end
+go
+
+create procedure RepairFacility
+@facnum int
+as
+begin 
+update Facility set Expenses=0
+where Facilitynumber=@facnum
+end
+go
+
+create procedure RepairCell
+@cnum int
+as
+begin 
+update Cell set Repairs = null
+where Cellnumber=@cnum
+end
+go
 
 
 
