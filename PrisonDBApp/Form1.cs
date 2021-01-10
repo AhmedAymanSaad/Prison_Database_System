@@ -34,5 +34,10 @@ namespace PrisonDBApp
             CivSignUpForm a = new CivSignUpForm(this);
             a.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

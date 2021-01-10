@@ -97,6 +97,12 @@
     <Compile Include="InmateData.Designer.cs">
       <DependentUpon>InmateData.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prison Warden Imprisoned Inmates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InmateData.resx">
       <DependentUpon>InmateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prison Warden Imprisoned Inmates.resx">
       <DependentUpon>Prison Warden Imprisoned Inmates.cs</DependentUpon>

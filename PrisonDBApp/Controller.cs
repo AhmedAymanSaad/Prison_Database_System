@@ -21,6 +21,12 @@ namespace PrisonDBApp
         {
             dbMan.CloseConnection();
         }
+        //----------------------------------------------LOG_IN------------------------------------------------------
+        public string LogIn(int username, int password)
+        {
+            string query = "select Usertype from Log_In where ID='"+username+"' and Password='"+password+"';";
+            return (string)dbMan.ExecuteScalar(query);
+        }
 
         //--------------------------------------------------------------------------------------------------------
         public DataTable SelectAllGuards()
@@ -39,6 +45,12 @@ namespace PrisonDBApp
         public DataTable SelectAllInmates()
         {
             string query = "select * from Inmate;";
+            return dbMan.ExecuteReader(query);
+        }
+
+        public DataTable SelectUserType()
+        {
+            string query = "SELECT DISTINCT Usertype FROM Log_In;";
             return dbMan.ExecuteReader(query);
         }
 
@@ -153,7 +165,20 @@ namespace PrisonDBApp
             return dbMan.ExecuteNonQuery(query);
         }
 
+        public int UpdateVisitorInfo(int x)
+        {
+            return 1;
+        }
 
+        public int InsertCivilianAccount(int x, int y)
+        {
+            return 1;
+        }
+
+        public int BookAVisit(int x, int y, DateTime z,DateTime l)
+        {
+            return 5;
+        }
         //-------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------
         //---------------------------------------------- For Repairs Form----------------------------------------------------
