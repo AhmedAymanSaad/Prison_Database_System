@@ -36,6 +36,7 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("You are already registered!");
             }
+            else
             a.Show();
         }
 
