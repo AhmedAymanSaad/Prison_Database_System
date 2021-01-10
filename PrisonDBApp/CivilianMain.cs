@@ -43,7 +43,7 @@ namespace PrisonDBApp
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            VisitForm a = new VisitForm(this);
+            VisitForm a = new VisitForm(this, Username);
             if (controllerObj.CheckIfRegistered(Username) == 0)
             {
                 MessageBox.Show("You must register a visitor first");
