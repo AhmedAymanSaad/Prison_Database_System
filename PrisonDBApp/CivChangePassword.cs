@@ -73,7 +73,14 @@ namespace PrisonDBApp
             else
             {
                 MessageBox.Show("Password changed!");
+                
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
         }
     }
 }

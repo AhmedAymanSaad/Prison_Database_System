@@ -52,16 +52,19 @@ namespace PrisonDBApp
                     if (UserType == "Warden")
                     {
                         PrisonWarden a = new PrisonWarden();
+                        this.Hide();
                         a.Show();
                     }
                     else if (UserType == "Guard")
                     {
                         GuardView g = new GuardView();
+                        this.Hide();
                         g.Show();
                     }
                     else if (UserType == "Visitor")
                     {
                         Civ_ViewBoard C = new Civ_ViewBoard(Int32.Parse(UsernametextBox.Text), this);
+                        this.Hide();
                         C.Show();
                     }
                     else

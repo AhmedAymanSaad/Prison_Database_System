@@ -34,6 +34,7 @@
             this.RegisterVisitorButton = new System.Windows.Forms.Button();
             this.CheckPersonStatusButton = new System.Windows.Forms.Button();
             this.CheckSentButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UpdateInfoButton
@@ -96,11 +97,23 @@
             this.CheckSentButton.UseVisualStyleBackColor = false;
             this.CheckSentButton.Click += new System.EventHandler(this.Button1_Click_2);
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.button1.Location = new System.Drawing.Point(324, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 45);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Log Out";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_3);
+            // 
             // Civ_ViewBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 250);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CheckSentButton);
             this.Controls.Add(this.CheckPersonStatusButton);
             this.Controls.Add(this.RegisterVisitorButton);
@@ -122,5 +135,6 @@
         private System.Windows.Forms.Button RegisterVisitorButton;
         private System.Windows.Forms.Button CheckPersonStatusButton;
         private System.Windows.Forms.Button CheckSentButton;
+        private System.Windows.Forms.Button button1;
     }
 }

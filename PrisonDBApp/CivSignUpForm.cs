@@ -73,10 +73,12 @@ namespace PrisonDBApp
                     }
                     else
                     {
-                      LogInInfo = controllerObj.InsertCivilianAccount(Int32.Parse(CivSignUpText.Text), Int32.Parse(CivPasswordtext.Text));
+                      LogInInfo = controllerObj.InsertCivilianAccount((int)UN, (int)PW);
                         if (LogInInfo != 0)
                         {
                             MessageBox.Show("Your account has been created successfully!");
+                            MyParent.Visible = true;
+                            this.Hide();
                         }
                         else if (LogInInfo == 0)
                         {
@@ -90,6 +92,12 @@ namespace PrisonDBApp
 
 
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            MyParent.Visible = true;
         }
     }
 }

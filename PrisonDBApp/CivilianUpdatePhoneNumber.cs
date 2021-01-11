@@ -77,5 +77,11 @@ namespace PrisonDBApp
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
+        }
     }
 }

@@ -83,5 +83,12 @@ namespace PrisonDBApp
             CivCheckSentence a = new CivCheckSentence(this);
             a.Show();
         }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            LogIn l = new LogIn();
+            l.Show();
+            this.Hide();
+        }
     }
 }

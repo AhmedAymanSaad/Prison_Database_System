@@ -32,12 +32,13 @@
             this.Cells_Button = new System.Windows.Forms.Button();
             this.Inmate_Button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Form_for_HiringAndFiring_Button
             // 
             this.Form_for_HiringAndFiring_Button.Location = new System.Drawing.Point(186, 72);
-            this.Form_for_HiringAndFiring_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Form_for_HiringAndFiring_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Form_for_HiringAndFiring_Button.Name = "Form_for_HiringAndFiring_Button";
             this.Form_for_HiringAndFiring_Button.Size = new System.Drawing.Size(122, 44);
             this.Form_for_HiringAndFiring_Button.TabIndex = 0;
@@ -48,7 +49,7 @@
             // Cells_Button
             // 
             this.Cells_Button.Location = new System.Drawing.Point(29, 72);
-            this.Cells_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cells_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Cells_Button.Name = "Cells_Button";
             this.Cells_Button.Size = new System.Drawing.Size(128, 47);
             this.Cells_Button.TabIndex = 1;
@@ -59,7 +60,7 @@
             // Inmate_Button
             // 
             this.Inmate_Button.Location = new System.Drawing.Point(186, 171);
-            this.Inmate_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Inmate_Button.Margin = new System.Windows.Forms.Padding(2);
             this.Inmate_Button.Name = "Inmate_Button";
             this.Inmate_Button.Size = new System.Drawing.Size(122, 48);
             this.Inmate_Button.TabIndex = 2;
@@ -70,7 +71,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(29, 171);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 48);
             this.button1.TabIndex = 3;
@@ -78,16 +79,28 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.button2.Location = new System.Drawing.Point(340, 171);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 48);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Log Out";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // PrisonWarden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 269);
+            this.ClientSize = new System.Drawing.Size(482, 269);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Inmate_Button);
             this.Controls.Add(this.Cells_Button);
             this.Controls.Add(this.Form_for_HiringAndFiring_Button);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrisonWarden";
             this.Text = "PrisonWarden";
             this.Load += new System.EventHandler(this.PrisonWarden_Load);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.Button Cells_Button;
         private System.Windows.Forms.Button Inmate_Button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

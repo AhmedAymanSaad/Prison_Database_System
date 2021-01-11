@@ -45,5 +45,12 @@ namespace PrisonDBApp
             GuardRelation a = new GuardRelation(this);
             a.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LogIn l = new LogIn();
+            l.Show();
+            this.Hide();
+        }
     }
 }

@@ -63,5 +63,11 @@ namespace PrisonDBApp
                     RelationTextBox.Text);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
+        }
     }
 }

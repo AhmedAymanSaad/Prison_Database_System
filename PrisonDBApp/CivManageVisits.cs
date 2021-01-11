@@ -99,7 +99,7 @@ namespace PrisonDBApp
         private void UpdateVisitButton_Click(object sender, EventArgs e)
         {
             int UpdateVisit;
-            
+
 
 
             if ((StartDatePicker.Value) > (EndDatePicker.Value))
@@ -110,25 +110,27 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Please enter your nationalID and the visitee's name");
             }
-           
 
-            UpdateVisit = controllerObj.UpdateAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
-                (EndDatePicker.Value));
-               
-            if (UpdateVisit == 0)
-            {
-                MessageBox.Show("visit could not be updated, please check data and that a visit exists");
-            }
             else
             {
-                MessageBox.Show("Visit Updated!");
+                UpdateVisit = controllerObj.UpdateAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
+                    (EndDatePicker.Value));
+
+                if (UpdateVisit == 0)
+                {
+                    MessageBox.Show("visit could not be updated, please check data and that a visit exists");
+                }
+                else
+                {
+                    MessageBox.Show("Visit Updated!");
+                }
             }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             int DeleteVisit;
-            
+
             if ((StartDatePicker.Value) > (StartDatePicker.Value))
             {
                 MessageBox.Show("The end date must be greater than the start date");
@@ -137,22 +139,31 @@ namespace PrisonDBApp
             {
                 MessageBox.Show("Please enter your nationalID and the visitee's name");
             }
-         
-            DeleteVisit = controllerObj.DeleteAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
-                (EndDatePicker.Value));
-            if (DeleteVisit == 0)
-            {
-                MessageBox.Show("visit could not be deleted, please check data and that it exists");
-            }
             else
             {
-                MessageBox.Show("Visit deleted!");
+
+                DeleteVisit = controllerObj.DeleteAVisit(InmateNameComboBox.Text, Int32.Parse(VisitVisitortextBox.Text), (StartDatePicker.Value),
+                    (EndDatePicker.Value));
+                if (DeleteVisit == 0)
+                {
+                    MessageBox.Show("visit could not be deleted, please check data and that it exists");
+                }
+                else
+                {
+                    MessageBox.Show("Visit deleted!");
+                }
             }
         }
 
         private void DateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
         }
     }
 }

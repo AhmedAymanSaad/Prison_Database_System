@@ -47,5 +47,12 @@ namespace PrisonDBApp
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LogIn l = new LogIn();
+            l.Show();
+            this.Hide();
+        }
     }
 }

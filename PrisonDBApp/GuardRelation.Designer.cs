@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AddRelationButton = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InmateIDRelationTextbox
@@ -66,7 +67,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "InmateID";
             // 
@@ -75,7 +76,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 137);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "VisitorID";
             // 
@@ -98,11 +99,23 @@
             this.AddRelationButton.UseVisualStyleBackColor = true;
             this.AddRelationButton.Click += new System.EventHandler(this.AddRelationButton_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(11, 329);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(72, 21);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Back";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // GuardRelation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(229, 361);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.AddRelationButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -127,5 +140,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button AddRelationButton;
+        private System.Windows.Forms.Button button4;
     }
 }

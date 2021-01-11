@@ -31,6 +31,7 @@
             this.UpdatePhoneTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PhoneUpdateButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UpdatePhoneTextBox
@@ -46,7 +47,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "New Phone#";
             // 
@@ -60,11 +61,22 @@
             this.PhoneUpdateButton.UseVisualStyleBackColor = true;
             this.PhoneUpdateButton.Click += new System.EventHandler(this.PhoneUpdateButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(224, 202);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // InfoUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 237);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.PhoneUpdateButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UpdatePhoneTextBox);
@@ -81,5 +93,6 @@
         private System.Windows.Forms.TextBox UpdatePhoneTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button PhoneUpdateButton;
+        private System.Windows.Forms.Button button1;
     }
 }

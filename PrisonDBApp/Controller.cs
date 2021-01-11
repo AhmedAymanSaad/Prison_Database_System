@@ -173,7 +173,7 @@ namespace PrisonDBApp
 
         public int InsertCivilianAccount(int Username, int Password)
         {
-            string query = "Insert into Log_in (Username, Password, Usertype) Values (" + Username + "," + Password + ", 'Visitor');";
+            string query = "Insert into Log_in Values (" + Username + "," + Password + ", 'Visitor');";
             return dbMan.ExecuteNonQuery(query);
         }
 

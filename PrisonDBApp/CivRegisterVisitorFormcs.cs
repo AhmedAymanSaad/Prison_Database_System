@@ -54,7 +54,15 @@ namespace PrisonDBApp
             else
             {
                 MessageBox.Show("Registration complete, you may now book visits");
+                MyParent.Visible = true;
+                this.Hide();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyParent.Visible = true;
+            this.Hide();
         }
     }
 }
